@@ -9,15 +9,25 @@ define('NEW_GESTURE_RULES',serialize(
         )
     )
 );
+/*
+|------------------------------------------------------------
+|               Controlador para los gestos
+|------------------------------------------------------------
+*/
 class GestureController extends BaseController {
 
+    /*
+    |------------------------------------------------------------
+    |           Función que permite agregar un gesto
+    |------------------------------------------------------------
+    */
     public function newGesture() {
         if (ValidationManager::isValid(Input::all(),unserialize(NEW_GESTURE_RULES))) {
             $gesture = new Gesture();
             $gesture->titulo = Input::get('titulo');
             $gesture->id_categoria = Input::get('categoria');
             $gesture->definicion = Input::get('definicion');
-            $gesture->url_video = FileManager::getName(Input::file('video'));
+            $gesture->url_video = GESTURE_PATH.FileManager::getName(Input::file('video'));
             if ($gesture->save()) {
                 FileManager::moveFile(Input::file('video'),GESTURE_PATH.$gesture->titulo);
                 $this->newExamples($gesture, Input::get("ej_titulos"),Input::file("ej_imagenes"));
@@ -26,12 +36,17 @@ class GestureController extends BaseController {
         return View::make('admin', array('categories' => Category::all()));
     }
 
+    /*
+    |------------------------------------------------------------
+    |      Función que permite agregar ejemplos de un gesto
+    |------------------------------------------------------------
+    */
     public function newExamples($gesture,$ej_titles,$ej_images) {
         for ($i=0; $i<sizeof($ej_titles); $i++) {
             $gesture->examples()->save(
                 new Example(array(
                     'titulo' => $ej_titles[$i],
-                    'url_imagen' => FileManager::getName($ej_images[$i])
+                    'url_imagen' => EXAMPLE_PATH.FileManager::getName($ej_images[$i])
                     )));
             FileManager::moveFile($ej_images[$i],EXAMPLE_PATH.$gesture->titulo);
         }

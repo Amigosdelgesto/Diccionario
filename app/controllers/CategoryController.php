@@ -24,8 +24,8 @@ class CategoryController extends BaseController {
             $category = new Category();
             $category->nombre = Input::get('titulo');
             $category->id_categoria_padre = Input::get('categoria_padre');
-            $category->url_imagen = FileManager::getName(Input::file('imagen'));
-            $category->url_video = FileManager::getName(Input::file('video'));
+            $category->url_imagen = CATEGORY_PATH.FileManager::getName(Input::file('imagen'));
+            $category->url_video = CATEGORY_PATH.FileManager::getName(Input::file('video'));
             if ($category->save()) {
                 FileManager::moveFile(Input::file('imagen'),CATEGORY_PATH.$category->nombre);
                 FileManager::moveFile(Input::file('video'),CATEGORY_PATH.$category->nombre);
