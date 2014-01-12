@@ -1,4 +1,4 @@
-## Diccionario de señas
+## Diccionario de señas.
 
 El diccionario de señas para la fundación amigos del gesto es una aplicación web que va a permitir que personas comunes aprendan la lengua de señas.
 
