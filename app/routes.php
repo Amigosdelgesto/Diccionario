@@ -13,7 +13,17 @@
 
 Route::get('/', function()
 {
-	return View::make('admin', array('categories' => Category::all()));
+	return View::make('hello', array('categories' => Category::all()));
+});
+
+Route::get('admin', function()
+{
+    return View::make('admin', array('categories' => Category::all()));
+});
+
+Route::get('category/{id}', function($id)
+{
+    return View::make('category', array('category' => Category::findOrFail($id)));
 });
 
 Route::post('category', 'CategoryController@newCategory');

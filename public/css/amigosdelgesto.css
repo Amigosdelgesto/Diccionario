@@ -1,0 +1,37 @@
+html, body{
+    min-height: 100%;
+}
+body{
+    background: #f3f3f3;
+}
+.img-categoria{
+    max-height: 150px;
+}
+.panel{
+    background: #fff;
+    box-shadow: 0px 3px 5px rgba(100,100,100,0.2);
+    border-radius: 2px;
+    border: none;
+}
+.panel .titulo-gesto{
+    color: #fff;
+    font-size: 1.5em;
+}
+.panel-titulo-gesto{
+    background: #0079a1;
+    color: #fff;
+}
+.rammetto-font{
+    font-family: 'Rammetto One', cursive;
+}
+.slide-content{
+    padding: 1.5em;
+}
+.hands-background{
+    padding-bottom: 150px;
+    background: url("../img/hands.jpg") bottom repeat-x;
+    background-size: 400px;
+}
+#lista-gestos{
+    margin-top: 20px;
+}
