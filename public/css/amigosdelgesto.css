@@ -28,10 +28,16 @@ body{
     padding: 1.5em;
 }
 .hands-background{
-    padding-bottom: 150px;
+    padding-bottom: 160px;
     background: url("../img/hands.jpg") bottom repeat-x;
     background-size: 400px;
 }
 #lista-gestos{
+    margin-top: 20px;
+}
+video{
+    width: 100%;
+}
+#directional-btns{
     margin-top: 20px;
 }
