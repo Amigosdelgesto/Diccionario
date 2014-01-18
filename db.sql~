@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6deb1
+-- version 4.0.9
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 18-01-2014 a las 17:59:52
--- Versión del servidor: 5.5.34-0ubuntu0.13.10.1
--- Versión de PHP: 5.5.3-1ubuntu2.1
+-- Servidor: 127.0.0.1
+-- Tiempo de generaciÃ³n: 06-01-2014 a las 21:18:56
+-- VersiÃ³n del servidor: 5.5.34
+-- VersiÃ³n de PHP: 5.4.22
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -32,18 +32,16 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `url_imagen` text NOT NULL,
   `url_video` text NOT NULL,
   `id_categoria_padre` int(11) DEFAULT NULL,
-  `status` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Volcado de datos para la tabla `categoria`
 --
 
-INSERT INTO `categoria` (`id_categoria`, `nombre`, `url_imagen`, `url_video`, `id_categoria_padre`, `status`) VALUES
-(29, 'Abecedario', '1366x768saucy.png', '', 0, 1),
-(30, 'Números', '../resources/categories/1366x768saucy.png', '../resources/categories/', 0, 1),
-(31, 'Vocabulario', '../resources/categories/thecityofathousandminarzz0.jpg', '../resources/categories/Cuenta Nómina.webm', 0, 1);
+INSERT INTO `categoria` (`id_categoria`, `nombre`, `url_imagen`, `url_video`, `id_categoria_padre`) VALUES
+(1, 'Abecedario', 'LOGO-ENCUESTALO.png', '', NULL),
+(2, 'Números', 'LOGO-ENCUESTALO-2.png', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -58,7 +56,7 @@ CREATE TABLE IF NOT EXISTS `ejemplo` (
   `url_imagen` text NOT NULL,
   PRIMARY KEY (`id_ejemplo`),
   KEY `fk_ejemplo_gesto_idx` (`id_gesto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 -- --------------------------------------------------------
 
@@ -74,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `gesto` (
   `url_video` text NOT NULL,
   PRIMARY KEY (`id_gesto`),
   KEY `fk_gest_categoria_idx` (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=25 ;
 
 --
 -- Restricciones para tablas volcadas

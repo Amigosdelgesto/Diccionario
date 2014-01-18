@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'gestos',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'lhernandez',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
