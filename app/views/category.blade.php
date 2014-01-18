@@ -23,7 +23,7 @@
     <div class="medium-4 large-6 columns">
         <ul class="breadcrumbs">
             <li><a href="{{ url('/') }}">Categorías</a></li>
-            <li class="current"><a href="#">{{ $categories->nombre }}</a></li>
+            <li class="current"><a href="#">{{ $category->nombre }}</a></li>
         </ul>
     </div>
     <div class="medium-8 large-6 columns">
@@ -40,10 +40,10 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <h3><a href="{{ url('/') }}"><i class="fa fa-arrow-circle-left fa-lg"></i></a> {{ ucfirst($categories->nombre) }}</h3>
+        <h3><a href="{{ url('/') }}"><i class="fa fa-arrow-circle-left fa-lg"></i></a> {{ ucfirst($category->nombre) }}</h3>
         <div id="lista-gestos">
             <ul class="small-block-grid-2 medium-block-grid-4">
-                @foreach ($categories->gestures as $gesture)
+                @foreach ($category->gestures as $gesture)
                 <li>
                     <!--<a href="#" data-orbit-link="headline-1" data-reveal-id="gestoModal">-->
                     <a href="{{ url('gesture') . '/' . $gesture->id_gesto }}" target="_self">
