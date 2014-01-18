@@ -39,7 +39,7 @@ class GestureController extends BaseController {
 
     /*
     |------------------------------------------------------------
-    |      Función que permite agregar ejemplos de un gesto
+    |      Función que permite agregar ejemplos de un gesto :)
     |------------------------------------------------------------
     */
     public function newExamples($gesture,$ej_titles,$ej_images) {
