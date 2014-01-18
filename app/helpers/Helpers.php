@@ -75,7 +75,6 @@ class ValidationManager {
     |
     */
     public static function isValid($data,$rules) {
-        $validator = Validator::make($data,$rules); 
         return !Validator::make($data,$rules)->fails();
     }
 
@@ -89,7 +88,6 @@ class ValidationManager {
     |
     */
     public static function getFails($data,$rules) {
-        $validator = Validator::make($data,$rules); 
         return Validator::make($data,$rules)->fails()->failed();
     }
 
