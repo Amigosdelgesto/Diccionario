@@ -38,7 +38,7 @@
             @foreach ($categories as $category)
             <li>
                 <!--<a href="#" data-reveal-id="categoriaModal">-->
-                <a href="{{ url('category') . '/' . $category->id_categoria }}">
+                <a href="{{ url('categories') . '/' . $category->id_categoria }}">
                     <div class="panel">
                         <div class="text-center">
                             <img class="img-categoria" src="http://placehold.it/250x200&text=Imagen">
