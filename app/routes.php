@@ -13,7 +13,33 @@
 
 Route::get('/', function()
 {
-	return View::make('admin', array('categories' => Category::all()));
+	return View::make('hello', array('categories' => Category::orderBy('nombre', 'ASC')->get()));
+});
+
+Route::get('admin', function()
+{
+    return View::make('admin', array('categories' => Category::orderBy('nombre', 'ASC')->get()));
+});
+
+Route::get('category/{id}', function($id)
+{
+    return View::make('category', array('category' => Category::findOrFail($id)));
+});
+
+Route::get('gesture/{id}', function($id)
+{
+    $gesture = Gesture::findOrFail($id);
+    $next = Gesture::where('titulo', '>', $gesture->titulo)->orderBy('titulo', 'ASC')->first();
+    $previous = Gesture::where('titulo', '<', $gesture->titulo)->orderBy('titulo', 'DESC')->first();
+    $category = Category::findOrFail($gesture->id_categoria);
+
+    return View::make('gesture', array(
+        'gesture' => $gesture,
+        'next' => $next,
+        'previous' => $previous,
+        'category' => $category,
+        )
+    );
 });
 
 Route::post('category', 'CategoryController@newCategory');

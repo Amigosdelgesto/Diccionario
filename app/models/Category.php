@@ -7,6 +7,6 @@ class Category extends Eloquent {
     public $timestamps = false;
 
     public function gestures() {
-        return $this->hasMany('Gesture','id_categoria');
+        return $this->hasMany('Gesture','id_categoria')->orderBy('titulo', 'ASC');
     }
 }

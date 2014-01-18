@@ -47,9 +47,28 @@ Log::useFiles(storage_path().'/logs/laravel.log');
 |
 */
 
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
+
 App::error(function(Exception $exception, $code)
 {
-	Log::error($exception);
+    Log::error($exception);
+});
+
+App::error(function(MethodNotAllowedHttpException $exception, $code)
+{
+    //Log::error($exception);
+    return Response::view('errors.missing', array(), 401);
+});
+
+App::error(function(ModelNotFoundException $e)
+{
+    return Response::view('errors.missing', array(), 404);
+});
+
+App::missing(function($exception)
+{
+    return Response::view('errors.missing', array(), 404);
 });
 
 /*
