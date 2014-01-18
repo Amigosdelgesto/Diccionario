@@ -34,4 +34,13 @@ class CategoryController extends BaseController {
         return View::make('admin', array('categories' => Category::all()));
     }
 
+    /*
+    |------------------------------------------------------------
+    |         Función que permite agregar una categoria
+    |------------------------------------------------------------
+    */
+    public function deleteCategory($id) {
+        $category = Category::find($id);
+    }
+
 }

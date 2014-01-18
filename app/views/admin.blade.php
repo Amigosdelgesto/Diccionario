@@ -43,7 +43,7 @@
 <div id="nuevaCategoriaModal" class="small reveal-modal" data-reveal>
     <h2>Nueva categoría</h2>
     <hr/>
-    <form action="{{ url('category') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('categories') }}" method="post" enctype="multipart/form-data">
         <label>Título</label>
         <input type="text" name="titulo" placeholder="Título" />
         <label>Imágen</label>
@@ -54,6 +54,7 @@
         <select name="categoria_padre">
             <option value="null">Ninguna</option>
             @if(isset($categories))
+
                 @foreach ($categories as $category)
                 <option value="{{ $category->id_categoria }}">{{ $category->nombre }}</option>
                 @endforeach
@@ -84,8 +85,8 @@
         <label>Categoría a la que pertenece</label>
         <select name="categoria">
           @if(isset($categories))
-            @foreach ($categories as $category)
-            <option value="{{ $category->id_categoria }}">{{ $category->nombre }}</option>
+            @foreach ($categories as $categories)
+            <option value="{{ $categories->id_categoria }}">{{ $categories->nombre }}</option>
             @endforeach
           @endif
         </select>

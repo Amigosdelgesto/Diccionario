@@ -19,9 +19,10 @@ class FileManager {
     |
     |
     */
-    public static function moveFile($file,$destinationPath) {
+    public static function moveFile($file,$destinationPath,$microtime = '') {
+        $destinationPath = str_replace(' ', '', $destinationPath);
         FileManager::createDir($destinationPath);
-        return (is_file($file)) ? $file->move($destinationPath,FileManager::getName($file)): false;
+        return (is_file($file)) ? $file->move($destinationPath, $microtime.FileManager::getName($file)): false;
     }
 
     /*
@@ -51,7 +52,7 @@ class FileManager {
     |
     */
     public static function getName($file) {
-        return (is_file($file)) ? $file->getClientOriginalName() : '';
+        return (is_file($file)) ? str_replace(" ","",$file->getClientOriginalName()) : '';
     }
 }
 
@@ -88,7 +89,9 @@ class ValidationManager {
     |
     */
     public static function getFails($data,$rules) {
-        return Validator::make($data,$rules)->fails()->failed();
+        $validator = Validator::make($data,$rules);
+        $validator->fails();
+        return $validator->failed();
     }
 
 }

@@ -21,7 +21,7 @@ Route::get('admin', function()
     return View::make('admin', array('categories' => Category::orderBy('nombre', 'ASC')->get()));
 });
 
-Route::get('category/{id}', function($id)
+Route::get('categories/{id}', function($id)
 {
     return View::make('category', array('category' => Category::findOrFail($id)));
 });
@@ -31,7 +31,7 @@ Route::get('gesture/{id}', function($id)
     $gesture = Gesture::findOrFail($id);
     $next = Gesture::where('titulo', '>', $gesture->titulo)->orderBy('titulo', 'ASC')->first();
     $previous = Gesture::where('titulo', '<', $gesture->titulo)->orderBy('titulo', 'DESC')->first();
-    $category = Category::findOrFail($gesture->id_categoria);
+    $category = Categorie::findOrFail($gesture->id_categoria);
 
     return View::make('gesture', array(
         'gesture' => $gesture,
@@ -42,5 +42,5 @@ Route::get('gesture/{id}', function($id)
     );
 });
 
-Route::post('category', 'CategoryController@newCategory');
+Route::post('categories', 'CategoryController@newCategory');
 Route::post('gesture', 'GestureController@newGesture');
