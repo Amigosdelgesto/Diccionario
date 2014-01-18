@@ -31,7 +31,7 @@ Route::get('gestures/{id}', function($id)
     $gesture = Gesture::findOrFail($id);
     $next = Gesture::where('titulo', '>', $gesture->titulo)->orderBy('titulo', 'ASC')->first();
     $previous = Gesture::where('titulo', '<', $gesture->titulo)->orderBy('titulo', 'DESC')->first();
-    $category = Categorie::findOrFail($gesture->id_categoria);
+    $category = Category::findOrFail($gesture->id_categoria);
 
     return View::make('gesture', array(
         'gesture' => $gesture,

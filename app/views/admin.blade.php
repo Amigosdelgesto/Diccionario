@@ -77,7 +77,7 @@
 <div id="nuevoGestoModal" class="small reveal-modal" data-reveal>
     <h2>Nuevo gesto</h2>
     <hr/>
-    <form action="{{ url('gesture') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('gestures') }}" method="post" enctype="multipart/form-data">
         <label>Título</label>
         <input type="text" name="titulo" placeholder="Título" />
         <label>Definición</label>

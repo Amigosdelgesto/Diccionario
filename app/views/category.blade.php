@@ -46,7 +46,7 @@
                 @foreach ($category->gestures as $gesture)
                 <li>
                     <!--<a href="#" data-orbit-link="headline-1" data-reveal-id="gestoModal">-->
-                    <a href="{{ url('gesture') . '/' . $gesture->id_gesto }}" target="_self">
+                    <a href="{{ url('gestures') . '/' . $gesture->id_gesto }}" target="_self">
                         <div class="panel panel-titulo-gesto">
                             <div class="text-center">
                                 <h2 class="titulo-gesto">{{ $gesture->titulo }}</h2>
