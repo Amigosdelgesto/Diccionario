@@ -39,13 +39,13 @@
     <div class="medium-6 large-6 columns">
         <h1 id="gesture-title">{{ $gesture->titulo }}</h1>
         <hr/>
-        @if (!empty($gesture->examples))
+        @if (count($gesture->examples) > 0)
         <h4>Ejemplo</h4>
         <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
             @foreach ($gesture->examples as $example)
             <li>
                 <div class="text-center">
-                    <img src="{{ $example->url_imagen }}">
+                    <img src="{{ url($example->url_imagen) }}">
                     <h5>{{ $example->titulo }}</h5>
                 </div>
             </li>
