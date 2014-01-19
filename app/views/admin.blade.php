@@ -90,6 +90,8 @@
             @endforeach
           @endif
         </select>
+        <label>Imágen principal</label>
+        <input type="file" name="main_image" accept="image/*" required/>
         <label>Video</label>
         <input type="file" name="video" accept="video/*" />
         <h5>Ejemplos</h5>
