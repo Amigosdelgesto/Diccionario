@@ -93,7 +93,7 @@
         <label>Imágen principal</label>
         <input type="file" name="main_image" accept="image/*" required/>
         <label>Video</label>
-        <input type="file" name="video" accept="video/*" />
+        <input type="file" name="video" accept="video/*" required/>
         <h5>Ejemplos</h5>
         <hr/>
         <div id="lista-ejemplos">
