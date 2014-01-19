@@ -23,13 +23,13 @@
             @if(isset($categories))
                 @foreach ($categories as $pos => $category)
                 <dd>
-                    <a href="#panel{{ $pos + 1 }}">{{ $category->nombre }}</a>
+                    <a href="#panel{{ $pos + 1 }}">{{ urldecode($category->nombre) }}</a>
                     <div id="panel{{ $pos + 1 }}" class="content {{ ($pos == 0) ? 'active' : '' }}">
                         <a class="tiny alert radius button right">Eliminar categoría</a>
                         <a class="tiny radius button right">Editar categoría</a>
                         <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
                             @foreach ($category->gestures as $gesture)
-                            <li><a><div class="panel text-center">{{ $gesture->titulo }}</div></a></li>
+                            <li><a><div class="panel text-center">{{ urldecode($gesture->titulo) }}</div></a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -56,7 +56,7 @@
             @if(isset($categories))
 
                 @foreach ($categories as $category)
-                <option value="{{ $category->id_categoria }}">{{ $category->nombre }}</option>
+                <option value="{{ $category->id_categoria }}">{{ urldecode($category->nombre) }}</option>
                 @endforeach
             @endif
         </select>
@@ -77,7 +77,7 @@
 <div id="nuevoGestoModal" class="small reveal-modal" data-reveal>
     <h2>Nuevo gesto</h2>
     <hr/>
-    <form action="{{ url('gesture') }}" method="post" enctype="multipart/form-data">
+    <form action="{{ url('gestures') }}" method="post" enctype="multipart/form-data">
         <label>Título</label>
         <input type="text" name="titulo" placeholder="Título" />
         <label>Definición</label>
@@ -86,12 +86,14 @@
         <select name="categoria">
           @if(isset($categories))
             @foreach ($categories as $categories)
-            <option value="{{ $categories->id_categoria }}">{{ $categories->nombre }}</option>
+            <option value="{{ $categories->id_categoria }}">{{ urldecode($categories->nombre) }}</option>
             @endforeach
           @endif
         </select>
+        <label>Imágen principal</label>
+        <input type="file" name="main_image" accept="image/*" required/>
         <label>Video</label>
-        <input type="file" name="video" accept="video/*" />
+        <input type="file" name="video" accept="video/*" required/>
         <h5>Ejemplos</h5>
         <hr/>
         <div id="lista-ejemplos">

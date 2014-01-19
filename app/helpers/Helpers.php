@@ -58,6 +58,7 @@ class FileManager {
         return (is_file($file)) ? self::clean($file->getClientOriginalName()) : '';
     }
 
+<<<<<<< HEAD
     /*
     |----------------------------------------------------------------------------------------
     |                                 Funcion cleanName($str)
@@ -75,6 +76,32 @@ class FileManager {
         return str_replace($problematicCharacters,$cuteCharacters,$str);
     }
 
+=======
+
+
+    public static function deleteDir($dirPath) {
+        
+        if (! is_dir($dirPath)) {
+            throw new InvalidArgumentException("$dirPath must be a directory");
+        }
+        
+        if (substr($dirPath, strlen($dirPath) - 1, 1) != '/') {
+            $dirPath .= '/';
+        }
+        $files = glob($dirPath . '*', GLOB_MARK);
+        
+        foreach ($files as $file) {
+            if (is_dir($file)) {
+                self::deleteDir($file);
+            } else {
+                unlink($file);
+            }
+        }
+        rmdir($dirPath);
+    }
+
+    
+>>>>>>> e8055aeea032ea4fcfba6fa85dcb3727f835767c
 }
 
 /*

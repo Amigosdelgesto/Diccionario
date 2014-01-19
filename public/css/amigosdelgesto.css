@@ -4,7 +4,7 @@ html, body{
 body{
     background: #f3f3f3;
 }
-.img-categoria{
+.img-categoria, .img-gesto{
     max-height: 150px;
 }
 .panel{
@@ -14,12 +14,13 @@ body{
     border: none;
 }
 .panel .titulo-gesto{
-    color: #fff;
+    color: #000;
     font-size: 1.5em;
+    font-weight: bold;
 }
 .panel-titulo-gesto{
-    background: #0079a1;
-    color: #fff;
+    background: #fff;
+    color: #000;
 }
 .rammetto-font{
     font-family: 'Rammetto One', cursive;
@@ -40,4 +41,10 @@ video{
 }
 #directional-btns{
     margin-top: 20px;
+}
+.bold{
+    font-weight: bold;
+}
+.img-preview{
+    height: 150px;
 }

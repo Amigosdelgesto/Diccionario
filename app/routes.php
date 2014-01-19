@@ -26,12 +26,12 @@ Route::get('categories/{id}', function($id)
     return View::make('category', array('category' => Category::findOrFail($id)));
 });
 
-Route::get('gesture/{id}', function($id)
+Route::get('gestures/{id}', function($id)
 {
     $gesture = Gesture::findOrFail($id);
     $next = Gesture::where('titulo', '>', $gesture->titulo)->orderBy('titulo', 'ASC')->first();
     $previous = Gesture::where('titulo', '<', $gesture->titulo)->orderBy('titulo', 'DESC')->first();
-    $category = Categorie::findOrFail($gesture->id_categoria);
+    $category = Category::findOrFail($gesture->id_categoria);
 
     return View::make('gesture', array(
         'gesture' => $gesture,
@@ -42,5 +42,11 @@ Route::get('gesture/{id}', function($id)
     );
 });
 
+Route::get('eliminarPrueba', function(){
+
+    FileManager::deleteDir('../resources/gestures/GestoNuevo');
+
+});
+
 Route::post('categories', 'CategoryController@newCategory');
-Route::post('gesture', 'GestureController@newGesture');
+Route::post('gestures', 'GestureController@newGesture');

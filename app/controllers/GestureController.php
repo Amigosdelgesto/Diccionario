@@ -24,10 +24,14 @@ class GestureController extends BaseController {
     public function newGesture() {
         if (ValidationManager::isValid(Input::all(),unserialize(NEW_GESTURE_RULES))) {
             $gesture = new Gesture();
-            $gesture->titulo = Input::get('titulo');
+            $gesture->titulo = urlencode(Input::get('titulo'));
             $gesture->id_categoria = Input::get('categoria');
             $gesture->definicion = Input::get('definicion');
+<<<<<<< HEAD
             $gesture->url_video =  FileManager::moveFile(Input::file('video'),GESTURE_PATH.$gesture->titulo."/");
+=======
+            $gesture->url_video = GESTURE_PATH.str_replace(' ','',$gesture->titulo).'/'.FileManager::getName(Input::file('video'));
+>>>>>>> e8055aeea032ea4fcfba6fa85dcb3727f835767c
             if ($gesture->save()) {
                 $this->newExamples($gesture, Input::get("ej_titulos"),Input::file("ej_imagenes"));
             }
@@ -51,4 +55,18 @@ class GestureController extends BaseController {
                     )));
         }
     }
+
+    /*
+    |------------------------------------------------------------
+    |      Función que permite eliminar un gesto x.x
+    |------------------------------------------------------------
+    */
+    public function deleteGesture($idGesture){
+        $gesture = Gesture::find($idGesture);
+        FileManager::deleteDir(GESTURE_PATH.$gesture->titulo);
+        $gesture->delete();
+    }
+
+
+
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diccionario de gestos | Abecedario</title>
+    <title>{{ urldecode($category->nombre) }} | Diccionario en señas</title>
     <link rel="stylesheet" href="{{ asset('css/foundation.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/amigosdelgesto.css') }}" />
     <link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC|Holtwood+One+SC|Rammetto+One' rel='stylesheet' type='text/css'>
@@ -14,7 +14,7 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <h1>Diccionario de gestos</h1>
+        <h1>Diccionario en señas</h1>
         <hr/>
     </div>
 </div>
@@ -23,7 +23,7 @@
     <div class="medium-4 large-6 columns">
         <ul class="breadcrumbs">
             <li><a href="{{ url('/') }}">Categorías</a></li>
-            <li class="current"><a href="#">{{ $categories->nombre }}</a></li>
+            <li class="current"><a href="#">{{ urldecode($category->nombre) }}</a></li>
         </ul>
     </div>
     <div class="medium-8 large-6 columns">
@@ -40,16 +40,17 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <h3><a href="{{ url('/') }}"><i class="fa fa-arrow-circle-left fa-lg"></i></a> {{ ucfirst($categories->nombre) }}</h3>
+        <h3><a href="{{ url('/') }}"><i class="fa fa-arrow-left fa-lg"></i> atrás</a> | <span class="bold">{{ ucfirst(urldecode($category->nombre)) }}</span></h3>
         <div id="lista-gestos">
-            <ul class="small-block-grid-2 medium-block-grid-4">
-                @foreach ($categories->gestures as $gesture)
+            <ul class="small-block-grid-1 medium-block-grid-3">
+                @foreach ($category->gestures as $gesture)
                 <li>
                     <!--<a href="#" data-orbit-link="headline-1" data-reveal-id="gestoModal">-->
-                    <a href="{{ url('gesture') . '/' . $gesture->id_gesto }}" target="_self">
+                    <a href="{{ url('gestures') . '/' . $gesture->id_gesto }}" target="_self">
                         <div class="panel panel-titulo-gesto">
                             <div class="text-center">
-                                <h2 class="titulo-gesto">{{ $gesture->titulo }}</h2>
+                                <img class="img-gesto" src="http://placehold.it/250x200&text=Imagen">
+                                <h2 class="titulo-gesto">{{ urldecode($gesture->titulo) }}</h2>
                             </div>
                         </div>
                     </a>
