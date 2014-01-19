@@ -22,7 +22,7 @@ class CategoryController extends BaseController {
     public function newCategory() {
         if (ValidationManager::isValid(Input::all(),unserialize(NEW_CATEGORY_RULES))) {
             $category = new Category();
-            $category->nombre = urlencode(Input::get('titulo'));
+            $category->nombre = Input::get('titulo');
             $category->id_categoria_padre = Input::get('categoria_padre');
             $category->url_imagen = FileManager::moveFile(Input::file('imagen'),CATEGORY_PATH.$category->nombre);
             $category->url_video = FileManager::moveFile(Input::file('video'),CATEGORY_PATH.$category->nombre);
