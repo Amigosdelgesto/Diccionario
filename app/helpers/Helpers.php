@@ -25,7 +25,7 @@ class FileManager {
         $microtime =str_replace('.', '', $microtime);
         FileManager::createDir($destinationPath);
         $value = (is_file($file)) ? $file->move($destinationPath, $microtime.$name): false;
-        return ($value) ? $destinationPath.$microtime.'/'.$name : false;
+        return ($value) ? $destinationPath.$microtime.$name : false;
     }
 
     /*

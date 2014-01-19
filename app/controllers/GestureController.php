@@ -27,7 +27,7 @@ class GestureController extends BaseController {
             $gesture->titulo = Input::get('titulo');
             $gesture->id_categoria = Input::get('categoria');
             $gesture->definicion = Input::get('definicion');
-            $gesture->url_video =  FileManager::moveFile(Input::file('video'),GESTURE_PATH.$gesture->titulo);
+            $gesture->url_video =  FileManager::moveFile(Input::file('video'),GESTURE_PATH.$gesture->titulo."/");
             if ($gesture->save()) {
                 $this->newExamples($gesture, Input::get("ej_titulos"),Input::file("ej_imagenes"));
             }
