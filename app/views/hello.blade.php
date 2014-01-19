@@ -3,18 +3,18 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diccionario de gestos | Fundación Amigos del Gesto</title>
+    <title>Diccionario en señas | Fundación Amigos del Gesto</title>
     <link rel="stylesheet" href="{{ asset('css/foundation.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/amigosdelgesto.css') }}" />
     <link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC|Holtwood+One+SC|Rammetto+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
     <script src="{{ asset('js/modernizr.js') }}"></script>
 </head>
-<body>
+<body class="hands-background">
 
 <div class="row">
     <div class="large-12 columns">
-        <h1>Diccionario de gestos</h1>
+        <h1>Diccionario en señas</h1>
         <hr/>
     </div>
 </div>
@@ -42,7 +42,7 @@
                     <div class="panel">
                         <div class="text-center">
                             <img class="img-categoria" src="http://placehold.it/250x200&text=Imagen">
-                            <h3>{{ $category->nombre }}</h3>
+                            <h3 class="bold">{{ $category->nombre }}</h3>
                         </div>
                     </div>
                 </a>

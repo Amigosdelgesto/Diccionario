@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Diccionario de gestos | Abecedario</title>
+    <title>{{ $gesture->titulo }} | Diccionario en señas</title>
     <link rel="stylesheet" href="{{ asset('css/foundation.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/amigosdelgesto.css') }}" />
     <link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC|Holtwood+One+SC|Rammetto+One' rel='stylesheet' type='text/css'>
@@ -14,7 +14,7 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <h1>Diccionario de gestos</h1>
+        <h1>Diccionario en señas</h1>
         <hr/>
     </div>
 </div>
@@ -23,7 +23,7 @@
     <div class="large-6 columns">
         <ul class="breadcrumbs">
             <li><a href="{{ url('/') }}">Categorías</a></li>
-            <li><a href="{{ url('category' . '/' . $category->id_categoria) }}">{{ $category->nombre }}</a></li>
+            <li><a href="{{ url('categories' . '/' . $category->id_categoria) }}">{{ $category->nombre }}</a></li>
             <li class="current"><a href="#">{{ $gesture->titulo }}</a></li>
         </ul>
     </div>
@@ -32,15 +32,14 @@
 <div class="row">
     <div class="medium-6 large-6 columns">
         <div class="text-center">
-            <!--<img src="http://placehold.it/300x400&text=Video">-->
-            <video src="{{ asset('test-resources/videos/video1.webm') }}" autoplay></video>
+            <video src="{{ url($gesture->url_video) }}" autoplay></video>
         </div>
     </div>
     <div class="medium-6 large-6 columns">
-        <h1 id="gesture-title">{{ $gesture->titulo }}</h1>
+        <h1 id="gesture-title" class="bold">{{ $gesture->titulo }}</h1>
         <hr/>
         @if (count($gesture->examples) > 0)
-        <h4>Ejemplo</h4>
+        <h4 class="bold">Ejemplos</h4>
         <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
             @foreach ($gesture->examples as $example)
             <li>

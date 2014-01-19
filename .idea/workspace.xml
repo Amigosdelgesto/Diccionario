@@ -2,21 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5327764-c4f0-450c-8dc5-227dc179e632" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/GestureController.php" afterPath="$PROJECT_DIR$/app/controllers/GestureController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin.blade.php" afterPath="$PROJECT_DIR$/app/views/admin.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/amigosdelgesto.css" afterPath="$PROJECT_DIR$/public/css/amigosdelgesto.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/category.blade.php" afterPath="$PROJECT_DIR$/app/views/category.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/gesture.blade.php" afterPath="$PROJECT_DIR$/app/views/gesture.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/hello.blade.php" afterPath="$PROJECT_DIR$/app/views/hello.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Diccionario.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390145733043" ignored="false" />
-    <file path="/routes.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390147447222" ignored="false" />
-    <file path="/category.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390084757729" ignored="false" />
-    <file path="/hello.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390083278661" ignored="false" />
-    <file path="/amigosdelgesto.css" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1389569343450" ignored="false" />
+    <file path="/routes.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390151262528" ignored="false" />
+    <file path="/category.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390153814695" ignored="false" />
+    <file path="/hello.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390153714783" ignored="false" />
+    <file path="/amigosdelgesto.css" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390152885814" ignored="false" />
     <file path="/global.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1389563162980" ignored="false" />
     <file path="/missing.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1389563247352" ignored="false" />
-    <file path="/gesture.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390148925432" ignored="false" />
+    <file path="/gesture.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390153762898" ignored="false" />
     <file path="/Category.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1389573033197" ignored="false" />
-    <file path="/admin.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390084976888" ignored="false" />
+    <file path="/admin.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390152696673" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,25 +44,43 @@
       <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/routes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="39" selection-start="876" selection-end="876" vertical-scroll-proportion="-9.807693">
+            <state line="45" column="56" selection-start="1439" selection-end="1439" vertical-scroll-proportion="-17.884615">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="missing.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/errors/missing.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="9" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gesture.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="gesture.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/gesture.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="24" selection-start="1641" selection-end="1641" vertical-scroll-proportion="0.3717694">
+            <state line="16" column="32" selection-start="777" selection-end="777" vertical-scroll-proportion="-8.5">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.blade.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/admin.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="90" column="16" selection-start="3726" selection-end="3726" vertical-scroll-proportion="-12.423077">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="category.blade.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/category.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="16" column="32" selection-start="778" selection-end="778" vertical-scroll-proportion="0.54075545">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GestureController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/GestureController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="22" selection-start="1182" selection-end="1182" vertical-scroll-proportion="-7.8461537">
               <folding />
             </state>
           </provider>
@@ -75,7 +98,7 @@
       <file leaf-file-name="hello.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/hello.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="43" selection-start="1543" selection-end="1543" vertical-scroll-proportion="0.0">
+            <state line="16" column="32" selection-start="781" selection-end="781" vertical-scroll-proportion="-10.461538">
               <folding />
             </state>
           </provider>
@@ -90,28 +113,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="global.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/start/global.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="43" selection-start="2000" selection-end="2000" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin.blade.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/admin.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="33" selection-start="3907" selection-end="3907" vertical-scroll-proportion="-11.769231">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="amigosdelgesto.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/css/amigosdelgesto.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="21" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
+            <state line="18" column="22" selection-start="330" selection-end="330" vertical-scroll-proportion="-12.24">
               <folding />
             </state>
           </provider>
@@ -149,13 +154,14 @@
         <option value="$PROJECT_DIR$/app/config/database.php" />
         <option value="$PROJECT_DIR$/app/start/global.php" />
         <option value="$PROJECT_DIR$/app/views/errors/missing.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/amigosdelgesto.css" />
         <option value="$PROJECT_DIR$/app/models/Category.php" />
-        <option value="$PROJECT_DIR$/app/views/hello.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/category.blade.php" />
-        <option value="$PROJECT_DIR$/app/views/admin.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/GestureController.php" />
         <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/views/admin.blade.php" />
+        <option value="$PROJECT_DIR$/public/css/amigosdelgesto.css" />
+        <option value="$PROJECT_DIR$/app/views/hello.blade.php" />
         <option value="$PROJECT_DIR$/app/views/gesture.blade.php" />
+        <option value="$PROJECT_DIR$/app/views/category.blade.php" />
       </list>
     </option>
   </component>
@@ -239,6 +245,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Diccionario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Diccionario" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -430,13 +454,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/admin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/database.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="59" column="28" selection-start="1816" selection-end="1816" vertical-scroll-proportion="0.4448598" />
@@ -487,47 +504,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/hello.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="43" selection-start="1543" selection-end="1543" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/category.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="20" selection-start="1830" selection-end="1830" vertical-scroll-proportion="0.44111776" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/amigosdelgesto.css">
+    <entry file="file://$PROJECT_DIR$/app/controllers/GestureController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="21" selection-start="630" selection-end="630" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="33" selection-start="3907" selection-end="3907" vertical-scroll-proportion="-11.769231">
+        <state line="30" column="22" selection-start="1182" selection-end="1182" vertical-scroll-proportion="-7.8461537">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="39" selection-start="876" selection-end="876" vertical-scroll-proportion="-9.807693">
+        <state line="45" column="56" selection-start="1439" selection-end="1439" vertical-scroll-proportion="-17.884615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="16" selection-start="3726" selection-end="3726" vertical-scroll-proportion="-12.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/amigosdelgesto.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="22" selection-start="330" selection-end="330" vertical-scroll-proportion="-12.24">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/gesture.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="24" selection-start="1641" selection-end="1641" vertical-scroll-proportion="0.3717694">
+        <state line="16" column="32" selection-start="777" selection-end="777" vertical-scroll-proportion="-8.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/hello.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="32" selection-start="781" selection-end="781" vertical-scroll-proportion="-10.461538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/category.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="32" selection-start="778" selection-end="778" vertical-scroll-proportion="0.54075545">
           <folding />
         </state>
       </provider>

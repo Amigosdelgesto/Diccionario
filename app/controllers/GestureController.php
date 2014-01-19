@@ -27,7 +27,7 @@ class GestureController extends BaseController {
             $gesture->titulo = Input::get('titulo');
             $gesture->id_categoria = Input::get('categoria');
             $gesture->definicion = Input::get('definicion');
-            $gesture->url_video = GESTURE_PATH.FileManager::getName(Input::file('video'));
+            $gesture->url_video = GESTURE_PATH.str_replace(' ','',$gesture->titulo).'/'.FileManager::getName(Input::file('video'));
             if ($gesture->save()) {
 
                 FileManager::moveFile(Input::file('video'),GESTURE_PATH.$gesture->titulo);
