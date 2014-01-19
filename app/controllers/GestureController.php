@@ -24,7 +24,7 @@ class GestureController extends BaseController {
     public function newGesture() {
         if (ValidationManager::isValid(Input::all(),unserialize(NEW_GESTURE_RULES))) {
             $gesture = new Gesture();
-            $gesture->titulo = urlencode(Input::get('titulo'));
+            $gesture->titulo = Input::get('titulo');
             $gesture->id_categoria = Input::get('categoria');
             $gesture->definicion = Input::get('definicion');
             $gesture->url_video =  FileManager::moveFile(Input::file('video'),GESTURE_PATH.$gesture->titulo."/");
