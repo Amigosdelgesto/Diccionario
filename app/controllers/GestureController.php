@@ -62,8 +62,8 @@ class GestureController extends BaseController {
     */
     public function deleteGesture($idGesture){
         $gesture = Gesture::find($idGesture);
-        //FileManager::deleteDir(GESTURE_PATH.);
-
+        FileManager::deleteDir(GESTURE_PATH.$gesture->titulo);
+        $gesture->delete();
     }
 
 
