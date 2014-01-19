@@ -33,6 +33,17 @@
     <div class="medium-6 large-6 columns">
         <div class="text-center">
             <video src="{{ url($gesture->url_video) }}" autoplay></video>
+            <div id="directional-btns" class="row">
+                <div class="large-12 columns text-center">
+                    @if (!empty($previous))
+                    <a href="{{ $previous->id_gesto }}" class="small button"><i class="fa fa-chevron-left"></i> {{ $previous->titulo }}</a>
+                    @endif
+
+                    @if (!empty($next))
+                    <a href="{{ $next->id_gesto }}" class="small button">{{ $next->titulo }} <i class="fa fa-chevron-right"></i></a>
+                    @endif
+                </div>
+            </div>
         </div>
     </div>
     <div class="medium-6 large-6 columns">
@@ -53,18 +64,6 @@
         @else
         <h4>Definición</h4>
         <p>{{ $gesture->definicion }}</p>
-        @endif
-    </div>
-</div>
-
-<div id="directional-btns" class="row">
-    <div class="large-12 columns text-center">
-        @if (!empty($previous))
-        <a href="{{ $previous->id_gesto }}" class="small button"><i class="fa fa-chevron-left"></i> {{ $previous->titulo }}</a>
-        @endif
-
-        @if (!empty($next))
-        <a href="{{ $next->id_gesto }}" class="small button">{{ $next->titulo }} <i class="fa fa-chevron-right"></i></a>
         @endif
     </div>
 </div>
