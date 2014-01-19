@@ -58,7 +58,6 @@ class FileManager {
         return (is_file($file)) ? self::clean($file->getClientOriginalName()) : '';
     }
 
-<<<<<<< HEAD
     /*
     |----------------------------------------------------------------------------------------
     |                                 Funcion cleanName($str)
@@ -75,9 +74,6 @@ class FileManager {
         $cuteCharacters = array("","a","e","i","o","u","n","A","E","I","O","U","N");
         return str_replace($problematicCharacters,$cuteCharacters,$str);
     }
-
-=======
-
 
     public static function deleteDir($dirPath) {
         
@@ -100,8 +96,6 @@ class FileManager {
         rmdir($dirPath);
     }
 
-    
->>>>>>> e8055aeea032ea4fcfba6fa85dcb3727f835767c
 }
 
 /*
