@@ -42,5 +42,11 @@ Route::get('gestures/{id}', function($id)
     );
 });
 
+Route::get('eliminarPrueba', function(){
+
+    FileManager::deleteDir('../resources/gestures/GestoNuevo');
+
+});
+
 Route::post('categories', 'CategoryController@newCategory');
 Route::post('gestures', 'GestureController@newGesture');

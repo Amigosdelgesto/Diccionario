@@ -24,7 +24,7 @@ class GestureController extends BaseController {
     public function newGesture() {
         if (ValidationManager::isValid(Input::all(),unserialize(NEW_GESTURE_RULES))) {
             $gesture = new Gesture();
-            $gesture->titulo = Input::get('titulo');
+            $gesture->titulo = urlencode(Input::get('titulo'));
             $gesture->id_categoria = Input::get('categoria');
             $gesture->definicion = Input::get('definicion');
             $gesture->url_video = GESTURE_PATH.str_replace(' ','',$gesture->titulo).'/'.FileManager::getName(Input::file('video'));
@@ -62,6 +62,8 @@ class GestureController extends BaseController {
     */
     public function deleteGesture($idGesture){
         $gesture = Gesture::find($idGesture);
+        //FileManager::deleteDir(GESTURE_PATH.);
+
     }
 
 

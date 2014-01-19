@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ $category->nombre }} | Diccionario en señas</title>
+    <title>{{ urldecode($category->nombre) }} | Diccionario en señas</title>
     <link rel="stylesheet" href="{{ asset('css/foundation.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/amigosdelgesto.css') }}" />
     <link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC|Holtwood+One+SC|Rammetto+One' rel='stylesheet' type='text/css'>
@@ -23,7 +23,7 @@
     <div class="medium-4 large-6 columns">
         <ul class="breadcrumbs">
             <li><a href="{{ url('/') }}">Categorías</a></li>
-            <li class="current"><a href="#">{{ $category->nombre }}</a></li>
+            <li class="current"><a href="#">{{ urldecode($category->nombre) }}</a></li>
         </ul>
     </div>
     <div class="medium-8 large-6 columns">
@@ -40,7 +40,7 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <h3><a href="{{ url('/') }}"><i class="fa fa-arrow-left fa-lg"></i> atrás</a> | <span class="bold">{{ ucfirst($category->nombre) }}</span></h3>
+        <h3><a href="{{ url('/') }}"><i class="fa fa-arrow-left fa-lg"></i> atrás</a> | <span class="bold">{{ ucfirst(urldecode($category->nombre)) }}</span></h3>
         <div id="lista-gestos">
             <ul class="small-block-grid-1 medium-block-grid-3">
                 @foreach ($category->gestures as $gesture)
@@ -50,7 +50,7 @@
                         <div class="panel panel-titulo-gesto">
                             <div class="text-center">
                                 <img class="img-gesto" src="http://placehold.it/250x200&text=Imagen">
-                                <h2 class="titulo-gesto">{{ $gesture->titulo }}</h2>
+                                <h2 class="titulo-gesto">{{ urldecode($gesture->titulo) }}</h2>
                             </div>
                         </div>
                     </a>

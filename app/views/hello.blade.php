@@ -42,7 +42,7 @@
                     <div class="panel">
                         <div class="text-center">
                             <img class="img-categoria" src="http://placehold.it/250x200&text=Imagen">
-                            <h3 class="bold">{{ $category->nombre }}</h3>
+                            <h3 class="bold">{{ urldecode($category->nombre) }}</h3>
                         </div>
                     </div>
                 </a>

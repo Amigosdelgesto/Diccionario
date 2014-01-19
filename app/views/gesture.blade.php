@@ -23,8 +23,8 @@
     <div class="large-6 columns">
         <ul class="breadcrumbs">
             <li><a href="{{ url('/') }}">Categorías</a></li>
-            <li><a href="{{ url('categories' . '/' . $category->id_categoria) }}">{{ $category->nombre }}</a></li>
-            <li class="current"><a href="#">{{ $gesture->titulo }}</a></li>
+            <li><a href="{{ url('categories' . '/' . $category->id_categoria) }}">{{ urldecode($category->nombre) }}</a></li>
+            <li class="current"><a href="#">{{ urldecode($gesture->titulo) }}</a></li>
         </ul>
     </div>
 </div>
@@ -36,18 +36,18 @@
             <div id="directional-btns" class="row">
                 <div class="large-12 columns text-center">
                     @if (!empty($previous))
-                    <a href="{{ $previous->id_gesto }}" class="small button"><i class="fa fa-chevron-left"></i> {{ $previous->titulo }}</a>
+                    <a href="{{ $previous->id_gesto }}" class="small button"><i class="fa fa-chevron-left"></i> {{ urldecode($previous->titulo) }}</a>
                     @endif
 
                     @if (!empty($next))
-                    <a href="{{ $next->id_gesto }}" class="small button">{{ $next->titulo }} <i class="fa fa-chevron-right"></i></a>
+                    <a href="{{ $next->id_gesto }}" class="small button">{{ urldecode($next->titulo) }} <i class="fa fa-chevron-right"></i></a>
                     @endif
                 </div>
             </div>
         </div>
     </div>
     <div class="medium-6 large-6 columns">
-        <h1 id="gesture-title" class="bold">{{ $gesture->titulo }}</h1>
+        <h1 id="gesture-title" class="bold">{{ urldecode($gesture->titulo) }}</h1>
         <hr/>
         @if (count($gesture->examples) > 0)
         <h4 class="bold">Ejemplos</h4>
