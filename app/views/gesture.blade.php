@@ -55,7 +55,9 @@
             @foreach ($gesture->examples as $example)
             <li>
                 <div class="text-center">
-                    <img src="{{ url($example->url_imagen) }}">
+                    <div class="img-preview" style="background: url({{ url($example->url_imagen) }}) center center no-repeat #fff; background-size: contain">
+
+                    </div>
                     <h5>{{ $example->titulo }}</h5>
                 </div>
             </li>
