@@ -20,34 +20,24 @@
 </div>
 
 <div class="row">
-    <div class="medium-7 large-6 columns">
+    <div class="large-6 columns">
         <ul class="breadcrumbs">
             <li><a href="{{ url('/') }}">Categorías</a></li>
             <li><a href="{{ url('category' . '/' . $category->id_categoria) }}">{{ $category->nombre }}</a></li>
             <li class="current"><a href="#">{{ $gesture->titulo }}</a></li>
         </ul>
     </div>
-    <div class="medium-5 large-6 columns">
-        <div class="row collapse">
-            <div class="small-10 columns">
-                <input type="text" placeholder="Categoría o gesto...">
-            </div>
-            <div class="small-2 columns">
-                <a href="#" class="button postfix radius"><i class="fa fa-search"></i></a>
-            </div>
-        </div>
-    </div>
 </div>
 
 <div class="row">
-    <div class="medium-6 large-4 columns">
+    <div class="medium-6 large-6 columns">
         <div class="text-center">
             <!--<img src="http://placehold.it/300x400&text=Video">-->
             <video src="{{ asset('test-resources/videos/video1.webm') }}" autoplay></video>
         </div>
     </div>
-    <div class="medium-6 large-8 columns">
-        <h2>{{ $gesture->titulo }}</h2>
+    <div class="medium-6 large-6 columns">
+        <h1 id="gesture-title">{{ $gesture->titulo }}</h1>
         <hr/>
         @if (!empty($gesture->examples))
         <h4>Ejemplo</h4>
