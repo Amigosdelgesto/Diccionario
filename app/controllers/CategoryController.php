@@ -24,14 +24,13 @@ class CategoryController extends BaseController {
             $category = new Category();
             $category->nombre = Input::get('titulo');
             $category->id_categoria_padre = Input::get('categoria_padre');
-            $category->url_imagen = CATEGORY_PATH.FileManager::getName(Input::file('imagen'));
-            $category->url_video = CATEGORY_PATH.FileManager::getName(Input::file('video'));
-            if ($category->save()) {
-                FileManager::moveFile(Input::file('imagen'),CATEGORY_PATH.$category->nombre);
-                FileManager::moveFile(Input::file('video'),CATEGORY_PATH.$category->nombre);
-            }
+            $category->url_imagen = FileManager::moveFile(Input::file('imagen'),CATEGORY_PATH.$category->nombre);
+            $category->url_video = FileManager::moveFile(Input::file('video'),CATEGORY_PATH.$category->nombre);
+            $category->save();
+            return View::make('admin', array('categories' => Category::all()));
+        } else {
+            print_r(ValidationManager::getFails(Input::all(),unserialize(NEW_CATEGORY_RULES)));
         }
-        return View::make('admin', array('categories' => Category::all()));
     }
 
     /*

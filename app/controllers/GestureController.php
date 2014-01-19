@@ -27,10 +27,8 @@ class GestureController extends BaseController {
             $gesture->titulo = Input::get('titulo');
             $gesture->id_categoria = Input::get('categoria');
             $gesture->definicion = Input::get('definicion');
-            $gesture->url_video = GESTURE_PATH.FileManager::getName(Input::file('video'));
+            $gesture->url_video =  FileManager::moveFile(Input::file('video'),GESTURE_PATH.$gesture->titulo);
             if ($gesture->save()) {
-
-                FileManager::moveFile(Input::file('video'),GESTURE_PATH.$gesture->titulo);
                 $this->newExamples($gesture, Input::get("ej_titulos"),Input::file("ej_imagenes"));
             }
         }
@@ -49,9 +47,8 @@ class GestureController extends BaseController {
             $gesture->examples()->save(
                 new Example(array(
                     'titulo' => $ej_titles[$i],
-                    'url_imagen' => GESTURE_PATH.$gesture->titulo."/examples/".$microtime.FileManager::getName($ej_images[$i])
+                    'url_imagen' => FileManager::moveFile($ej_images[$i],GESTURE_PATH.$gesture->titulo."/examples/",$microtime)
                     )));
-            FileManager::moveFile($ej_images[$i],GESTURE_PATH.$gesture->titulo."/examples/",$microtime);
         }
     }
 }

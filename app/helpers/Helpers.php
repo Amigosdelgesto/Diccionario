@@ -20,9 +20,12 @@ class FileManager {
     |
     */
     public static function moveFile($file,$destinationPath,$microtime = '') {
-        $destinationPath = str_replace(' ', '', $destinationPath);
+        $destinationPath = self::clean($destinationPath);
+        $name = FileManager::getName($file);
+        $microtime =str_replace('.', '', $microtime);
         FileManager::createDir($destinationPath);
-        return (is_file($file)) ? $file->move($destinationPath, $microtime.FileManager::getName($file)): false;
+        $value = (is_file($file)) ? $file->move($destinationPath, $microtime.$name): false;
+        return ($value) ? $destinationPath.$microtime.'/'.$name : false;
     }
 
     /*
@@ -52,8 +55,26 @@ class FileManager {
     |
     */
     public static function getName($file) {
-        return (is_file($file)) ? str_replace(" ","",$file->getClientOriginalName()) : '';
+        return (is_file($file)) ? self::clean($file->getClientOriginalName()) : '';
     }
+
+    /*
+    |----------------------------------------------------------------------------------------
+    |                                 Funcion cleanName($str)
+    |----------------------------------------------------------------------------------------
+    |  Retorna un string sin caracteres especiales
+    |
+    |  Parametros:
+    |  $str = cadena que va a ser limpiada
+    |
+    |
+    */
+    public static function clean($str) {
+        $problematicCharacters = array(" ","á","é","í","ó","ú","ñ","Á","É","Í","Ó","Ú","Ñ");
+        $cuteCharacters = array("","a","e","i","o","u","n","A","E","I","O","U","N");
+        return str_replace($problematicCharacters,$cuteCharacters,$str);
+    }
+
 }
 
 /*
