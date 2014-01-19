@@ -45,3 +45,6 @@ video{
 .bold{
     font-weight: bold;
 }
+.img-preview{
+    height: 150px;
+}
