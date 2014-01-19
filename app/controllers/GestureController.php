@@ -54,4 +54,16 @@ class GestureController extends BaseController {
             FileManager::moveFile($ej_images[$i],GESTURE_PATH.$gesture->titulo."/examples/",$microtime);
         }
     }
+
+    /*
+    |------------------------------------------------------------
+    |      Función que permite eliminar un gesto x.x
+    |------------------------------------------------------------
+    */
+    public function deleteGesture($idGesture){
+        $gesture = Gesture::find($idGesture);
+    }
+
+
+
 }
