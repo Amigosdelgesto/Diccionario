@@ -20,8 +20,10 @@
             <label>Categoría a la que pertenece</label>
             <select name="categoria">
                 @if(isset($categories))
-                @foreach ($categories as $categories)
-                <option value="{{ $categories->id_categoria }}">{{ urldecode($categories->nombre) }}</option>
+                @foreach ($categories as $category)
+                <option value="{{ $category->id_categoria }}" {{ ($category->id_categoria == $gesture->id_categoria) ? 'selected' : '' }}>
+                    {{ urldecode($category->nombre) }}
+                </option>
                 @endforeach
                 @endif
             </select>

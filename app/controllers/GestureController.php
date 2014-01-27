@@ -90,6 +90,7 @@ class GestureController extends BaseController {
             }
 
             $gesture->definicion = Input::get('definicion');
+            $gesture->id_categoria = Input::get('categoria');
 
             $image = Input::file('main_image');
             if (!empty($image)) {

@@ -12,7 +12,7 @@
 <body>
 <div class="row">
     <div class="large-12 columns">
-        <h1>Panel administrativo | Diccionario de gestos</h1>
+        <h1><strong>Panel administrativo</strong> | Diccionario de gestos</h1>
         <hr/>
     </div>
 </div>
@@ -28,7 +28,7 @@
                 <a href="#panel{{ $pos + 1 }}">{{ urldecode($category->nombre) }}</a>
                 <div id="panel{{ $pos + 1 }}" class="content {{ ($pos == 0) ? 'active' : '' }}">
                     <div class="text-right">
-                        <a class="tiny radius button">Editar categoría</a>
+                        <a href="{{ url('categories/' . $category->id_categoria . '/edit' ) }}" class="tiny radius button" data-reveal-id="editarCategoriaModal" data-reveal-ajax="true">Editar categoría</a>
                         @if ($category->status)
                         <a href="{{ url('categories/' . $category->id_categoria . '/delete') }}" class="tiny alert radius button" onclick="deleteCategory({{ $category->id_categoria }}, '{{ $category->nombre }}')">{{ (count($category->gestures)) ? 'Desactivar' : 'Eliminar' }} categoría</a>
                         @else
@@ -87,10 +87,8 @@
     <a class="close-reveal-modal">&#215;</a>
 </div>
 
-<div id="editarCategoriaModal" class="medium reveal-modal" data-reveal>
-    <h2>Editar categoría</h2>
-    <hr/>
-    <a class="close-reveal-modal">&#215;</a>
+<div id="editarCategoriaModal" class="small reveal-modal" data-reveal>
+
 </div>
 
 <div id="nuevoGestoModal" class="medium reveal-modal" data-reveal>

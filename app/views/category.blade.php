@@ -49,7 +49,7 @@
                     <a href="{{ url('gestures') . '/' . $gesture->id_gesto }}" target="_self">
                         <div class="panel panel-titulo-gesto">
                             <div class="text-center">
-                                <img class="img-gesto" src="http://placehold.it/250x200&text=Imagen">
+                                <img class="img-gesto" src="{{ url($gesture->url_imagen) }}">
                                 <h2 class="titulo-gesto">{{ urldecode($gesture->titulo) }}</h2>
                             </div>
                         </div>

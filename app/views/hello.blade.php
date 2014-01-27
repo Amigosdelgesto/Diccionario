@@ -41,7 +41,7 @@
                 <a href="{{ url('categories') . '/' . $category->id_categoria }}">
                     <div class="panel">
                         <div class="text-center">
-                            <img class="img-categoria" src="http://placehold.it/250x200&text=Imagen">
+                            <img class="img-categoria" src="{{ url($category->url_imagen) }}">
                             <h3 class="bold">{{ urldecode($category->nombre) }}</h3>
                         </div>
                     </div>
