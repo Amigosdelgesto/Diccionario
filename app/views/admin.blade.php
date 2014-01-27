@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel administrativo | Diccionario de gestos</title>
     <link rel="stylesheet" href="{{ asset('css/foundation.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
+    <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
     <script src="{{ asset('js/modernizr.js') }}"></script>
 </head>
 <body>
@@ -21,20 +23,38 @@
         <a class="small success radius button" data-reveal-id="nuevoGestoModal">Agregar gesto</a>
         <dl class="accordion" data-accordion>
             @if(isset($categories))
-                @foreach ($categories as $pos => $category)
-                <dd>
-                    <a href="#panel{{ $pos + 1 }}">{{ urldecode($category->nombre) }}</a>
-                    <div id="panel{{ $pos + 1 }}" class="content {{ ($pos == 0) ? 'active' : '' }}">
-                        <a class="tiny alert radius button right">Eliminar categoría</a>
-                        <a class="tiny radius button right">Editar categoría</a>
-                        <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
-                            @foreach ($category->gestures as $gesture)
-                            <li><a><div class="panel text-center">{{ urldecode($gesture->titulo) }}</div></a></li>
-                            @endforeach
-                        </ul>
+            @foreach ($categories as $pos => $category)
+            <dd>
+                <a href="#panel{{ $pos + 1 }}">{{ urldecode($category->nombre) }}</a>
+                <div id="panel{{ $pos + 1 }}" class="content {{ ($pos == 0) ? 'active' : '' }}">
+                    <div class="text-right">
+                        <a class="tiny radius button">Editar categoría</a>
+                        @if ($category->status)
+                        <a href="{{ url('categories/' . $category->id_categoria . '/delete') }}" class="tiny alert radius button" onclick="deleteCategory({{ $category->id_categoria }}, '{{ $category->nombre }}')">{{ (count($category->gestures)) ? 'Desactivar' : 'Eliminar' }} categoría</a>
+                        @else
+                        <a href="{{ url('categories/' . $category->id_categoria . '/delete') }}" class="tiny success radius button" onclick="deleteCategory({{ $category->id_categoria }}, '{{ $category->nombre }}')">Activar categoría</a>
+                        @endif
                     </div>
-                </dd>
-                @endforeach
+                    <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+                        @foreach ($category->gestures as $gesture)
+                        <li>
+                            <div class="panel text-center">
+                                <a class="negro" href="{{ url('gestures/' . $gesture->id_gesto . '/edit' ) }}" data-reveal-id="editarGestoModal" data-reveal-ajax="true">
+                                    {{ urldecode($gesture->titulo) }}
+                                </a>
+                                <div class="delete-icon">
+                                    <a href="{{ url('gestures/' . $gesture->id_gesto . '/edit' ) }}" data-reveal-id="editarGestoModal" data-reveal-ajax="true">
+                                        <i class="fa fa-pencil"></i>
+                                    </a>
+                                    <a class="rojo" onclick="deleteGesture({{ $gesture->id_gesto }}, '{{ $gesture->titulo }}')"><i class="fa fa-times"></i></a>
+                                </div>
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </dd>
+            @endforeach
             @endif
         </dl>
     </div>
@@ -45,19 +65,18 @@
     <hr/>
     <form action="{{ url('categories') }}" method="post" enctype="multipart/form-data">
         <label>Título</label>
-        <input type="text" name="titulo" placeholder="Título" />
+        <input type="text" name="titulo" placeholder="Título" required />
         <label>Imágen</label>
-        <input type="file" name="imagen" accept="image/*" />
+        <input type="file" name="imagen" accept="image/*" required/>
         <label>Video</label>
-        <input type="file" name="video" accept="video/*" />
+        <input type="file" name="video" accept="video/*" required />
         <label>Categoría a la que pertenece</label>
-        <select name="categoria_padre">
+        <select name="categoria_padre" required>
             <option value="null">Ninguna</option>
             @if(isset($categories))
-
-                @foreach ($categories as $category)
-                <option value="{{ $category->id_categoria }}">{{ urldecode($category->nombre) }}</option>
-                @endforeach
+            @foreach ($categories as $category)
+            <option value="{{ $category->id_categoria }}">{{ urldecode($category->nombre) }}</option>
+            @endforeach
             @endif
         </select>
         <div class="text-right">
@@ -68,54 +87,75 @@
     <a class="close-reveal-modal">&#215;</a>
 </div>
 
-<div id="editarCategoriaModal" class="small reveal-modal" data-reveal>
+<div id="editarCategoriaModal" class="medium reveal-modal" data-reveal>
     <h2>Editar categoría</h2>
     <hr/>
     <a class="close-reveal-modal">&#215;</a>
 </div>
 
-<div id="nuevoGestoModal" class="small reveal-modal" data-reveal>
+<div id="nuevoGestoModal" class="medium reveal-modal" data-reveal>
     <h2>Nuevo gesto</h2>
     <hr/>
     <form action="{{ url('gestures') }}" method="post" enctype="multipart/form-data">
-        <label>Título</label>
-        <input type="text" name="titulo" placeholder="Título" />
-        <label>Definición</label>
-        <textarea placeholder="Definición" name="definicion"></textarea>
-        <label>Categoría a la que pertenece</label>
-        <select name="categoria">
-          @if(isset($categories))
-            @foreach ($categories as $categories)
-            <option value="{{ $categories->id_categoria }}">{{ urldecode($categories->nombre) }}</option>
-            @endforeach
-          @endif
-        </select>
-        <label>Imágen principal</label>
-        <input type="file" name="main_image" accept="image/*" required/>
-        <label>Video</label>
-        <input type="file" name="video" accept="video/*" required/>
-        <h5>Ejemplos</h5>
-        <hr/>
-        <div id="lista-ejemplos">
-
+        <div class="row">
+            <div class="large-6 columns">
+                <label>Título</label>
+                <input type="text" name="titulo" placeholder="Título" required />
+                <label>Definición</label>
+                <textarea placeholder="Definición" name="definicion" required></textarea>
+            </div>
+            <div class="large-6 columns">
+                <label>Imágen principal</label>
+                <input class="file-input" type="file" name="main_image" accept="image/*" required/>
+                <label>Video</label>
+                <input class="file-input" type="file" name="video" accept="video/*" required/>
+            </div>
         </div>
-        <div class="text-right">
-            <a id="btn-nuevo-ejemplo" class="tiny radius button">Agregar ejemplo</a>
-            <a id="btn-eliminar-ejemplo" class="tiny alert radius button">Eliminar ejemplo</a>
-        </div>
-        <hr />
-        <div class="text-right">
-            <input type="submit" class="small success radius button" value="Guardar" />
-            <a class="small radius button">Cancelar</a>
+        <div class="row">
+            <div class="large-12 columns">
+                <label>Categoría a la que pertenece</label>
+                <select name="categoria" required>
+                    @if(isset($categories))
+                    @foreach ($categories as $categories)
+                    <option value="{{ $categories->id_categoria }}">{{ urldecode($categories->nombre) }}</option>
+                    @endforeach
+                    @endif
+                </select>
+                <fieldset>
+                    <legend>Ejemplos</legend>
+                    <ul id="lista-ejemplos" class="small-block-grid-1 large-block-grid-3">
+                        <li id="ejemplo1" class="ejemplo">
+                            <label>Título</label>
+                            <input type="text" name="ej_titulos[]" placeholder="Título"/>
+                            <label>Imágen</label>
+                            <input type="file" name="ej_imagenes[]" accept="image/*"/>
+                        </li>
+                        <li id="ejemplo2" class="ejemplo">
+                            <label>Título</label>
+                            <input type="text" name="ej_titulos[]" placeholder="Título"/>
+                            <label>Imágen</label>
+                            <input type="file" name="ej_imagenes[]" accept="image/*"/>
+                        </li>
+                        <li id="ejemplo3" class="ejemplo">
+                            <label>Título</label>
+                            <input type="text" name="ej_titulos[]" placeholder="Título"/>
+                            <label>Imágen</label>
+                            <input type="file" name="ej_imagenes[]" accept="image/*"/>
+                        </li>
+                    </ul>
+                </fieldset>
+                <div class="text-right">
+                    <input type="submit" class="small success radius button" value="Guardar" />
+                    <a class="small radius button">Cancelar</a>
+                </div>
+            </div>
         </div>
     </form>
     <a class="close-reveal-modal">&#215;</a>
 </div>
 
-<div id="editarGestoModal" class="small reveal-modal" data-reveal>
-    <h2>Editar gesto</h2>
-    <hr/>
-    <a class="close-reveal-modal">&#215;</a>
+<div id="editarGestoModal" class="medium reveal-modal" data-reveal>
+
 </div>
 
 <script src="{{ asset('js/jquery.js') }}"></script>
@@ -129,12 +169,12 @@
         ejemplos = ejemplos + 1;
 
         var html_ejemplo =
-            '<div id="ejemplo' + ejemplos + '" class="ejemplo">' +
+            '<li id="ejemplo' + ejemplos + '" class="ejemplo">' +
                 '<label>Título</label>' +
                 '<input type="text" name="ej_titulos[' + ejemplos + ']" placeholder="Título" required/>' +
                 '<label>Imágen</label>' +
                 '<input type="file" name="ej_imagenes[' + ejemplos + ']" accept="image/*" required/>' +
-                '</div>';
+                '</li>';
         $('#lista-ejemplos').append(html_ejemplo);
 
         if (ejemplos >= 0)
@@ -152,6 +192,12 @@
     });
 
     $('#btn-eliminar-ejemplo').css('display', 'none');
+
+    function deleteGesture(id, title){
+        if (confirm('¿Desea eliminar el gesto ' + title + '?')) {
+            location.href = '{{ url('gestures') }}/' + id + '/delete';
+        }
+    }
 </script>
 </body>
 </html>

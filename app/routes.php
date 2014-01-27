@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello', array('categories' => Category::orderBy('nombre', 'ASC')->get()));
+    return View::make('hello', array('categories' => Category::orderBy('nombre', 'ASC')->get()));
 });
 
 Route::get('admin', function()
@@ -34,19 +34,30 @@ Route::get('gestures/{id}', function($id)
     $category = Category::findOrFail($gesture->id_categoria);
 
     return View::make('gesture', array(
-        'gesture' => $gesture,
-        'next' => $next,
-        'previous' => $previous,
-        'category' => $category,
+            'gesture' => $gesture,
+            'next' => $next,
+            'previous' => $previous,
+            'category' => $category,
         )
     );
 });
 
-Route::get('eliminarPrueba', function(){
+Route::get('gestures/{id}/delete', 'GestureController@deleteGesture');
+Route::get('categories/{id}/delete', 'CategoryController@deleteCategory');
 
-    FileManager::deleteDir('../resources/gestures/GestoNuevo');
-
+Route::get('gestures/{id}/edit', function($id) {
+    return View::make('edit-gesture')->with(array('gesture' => Gesture::findOrFail($id), 'categories' => Category::all()));
 });
+
+Route::post('gestures/{id}/update', 'GestureController@editGesture');
 
 Route::post('categories', 'CategoryController@newCategory');
 Route::post('gestures', 'GestureController@newGesture');
+
+Route::get('test', function() {
+    $titulo = Input::get('t');
+    $id = Input::get('i');
+    return Gesture::where('titulo', $titulo)
+        ->where('id_gesto', '<>', $id)
+        ->count();
+});

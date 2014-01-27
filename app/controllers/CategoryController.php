@@ -27,7 +27,7 @@ class CategoryController extends BaseController {
             $category->url_imagen = FileManager::moveFile(Input::file('imagen'),CATEGORY_PATH.$category->nombre);
             $category->url_video = FileManager::moveFile(Input::file('video'),CATEGORY_PATH.$category->nombre);
             $category->save();
-            return View::make('admin', array('categories' => Category::all()));
+            return Redirect::to('admin');
         } else {
             print_r(ValidationManager::getFails(Input::all(),unserialize(NEW_CATEGORY_RULES)));
         }
@@ -39,7 +39,17 @@ class CategoryController extends BaseController {
     |------------------------------------------------------------
     */
     public function deleteCategory($id) {
-        $category = Category::find($id);
+        $category = Category::with('gestures')->findOrFail($id);
+
+        if (empty($category->gestures)) {
+            FileManager::deleteDir(CATEGORY_PATH.FileManager::clean($category->nombre));
+            $category->delete();
+        }
+        else {
+            $category->status = !$category->status;
+            $category->save();
+        }
+        return Redirect::to('admin');
     }
 
 }

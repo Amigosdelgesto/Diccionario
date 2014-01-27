@@ -96,6 +96,16 @@ class FileManager {
         rmdir($dirPath);
     }
 
+    public static function updateResourcePath($actualPath, $newRootPath) {
+        $fileName = substr($actualPath, strripos($actualPath, '/'));
+        $newRootPath = self::clean($newRootPath);
+        return $newRootPath . $fileName;
+    }
+
+    public static function rename($actualName, $newName) {
+        return rename(self::clean($actualName), self::clean($newName));
+    }
+
 }
 
 /*
