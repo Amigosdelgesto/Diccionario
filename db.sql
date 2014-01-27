@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6deb1
+-- version 4.0.4.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 18-01-2014 a las 17:59:52
--- Versión del servidor: 5.5.34-0ubuntu0.13.10.1
--- Versión de PHP: 5.5.3-1ubuntu2.1
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 27-01-2014 a las 05:12:48
+-- Versión del servidor: 5.5.32
+-- Versión de PHP: 5.4.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `gestos`
 --
+CREATE DATABASE IF NOT EXISTS `gestos` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `gestos`;
 
 -- --------------------------------------------------------
 
@@ -26,6 +28,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `categoria`
 --
 
+DROP TABLE IF EXISTS `categoria`;
 CREATE TABLE IF NOT EXISTS `categoria` (
   `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
@@ -34,16 +37,7 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `id_categoria_padre` int(11) DEFAULT NULL,
   `status` tinyint(1) DEFAULT '1',
   PRIMARY KEY (`id_categoria`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=32 ;
-
---
--- Volcado de datos para la tabla `categoria`
---
-
-INSERT INTO `categoria` (`id_categoria`, `nombre`, `url_imagen`, `url_video`, `id_categoria_padre`, `status`) VALUES
-(29, 'Abecedario', '1366x768saucy.png', '', 0, 1),
-(30, 'Números', '../resources/categories/1366x768saucy.png', '../resources/categories/', 0, 1),
-(31, 'Vocabulario', '../resources/categories/thecityofathousandminarzz0.jpg', '../resources/categories/Cuenta Nómina.webm', 0, 1);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
 
 -- --------------------------------------------------------
 
@@ -51,6 +45,7 @@ INSERT INTO `categoria` (`id_categoria`, `nombre`, `url_imagen`, `url_video`, `i
 -- Estructura de tabla para la tabla `ejemplo`
 --
 
+DROP TABLE IF EXISTS `ejemplo`;
 CREATE TABLE IF NOT EXISTS `ejemplo` (
   `id_ejemplo` int(11) NOT NULL AUTO_INCREMENT,
   `id_gesto` int(11) NOT NULL,
@@ -58,7 +53,7 @@ CREATE TABLE IF NOT EXISTS `ejemplo` (
   `url_imagen` text NOT NULL,
   PRIMARY KEY (`id_ejemplo`),
   KEY `fk_ejemplo_gesto_idx` (`id_gesto`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 -- --------------------------------------------------------
 
@@ -66,15 +61,17 @@ CREATE TABLE IF NOT EXISTS `ejemplo` (
 -- Estructura de tabla para la tabla `gesto`
 --
 
+DROP TABLE IF EXISTS `gesto`;
 CREATE TABLE IF NOT EXISTS `gesto` (
   `id_gesto` int(11) NOT NULL AUTO_INCREMENT,
   `id_categoria` int(11) NOT NULL,
   `titulo` varchar(45) NOT NULL,
-  `definicion` varchar(45) DEFAULT NULL,
+  `definicion` text,
   `url_video` text NOT NULL,
+  `url_imagen` text NOT NULL,
   PRIMARY KEY (`id_gesto`),
   KEY `fk_gest_categoria_idx` (`id_categoria`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Restricciones para tablas volcadas
@@ -84,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `gesto` (
 -- Filtros para la tabla `ejemplo`
 --
 ALTER TABLE `ejemplo`
-  ADD CONSTRAINT `fk_ejemplo_gesto` FOREIGN KEY (`id_gesto`) REFERENCES `gesto` (`id_gesto`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_ejemplo_gesto` FOREIGN KEY (`id_gesto`) REFERENCES `gesto` (`id_gesto`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `gesto`
