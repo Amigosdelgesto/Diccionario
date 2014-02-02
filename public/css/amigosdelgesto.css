@@ -83,8 +83,4 @@ header{
 .category-title{
     color: #333;
     text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
-    letter-spacing: 4px;
-}
-#gesture-title{
-    letter-spacing: normal;
 }
