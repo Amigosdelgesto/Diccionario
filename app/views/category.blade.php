@@ -10,14 +10,19 @@
     <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
     <script src="{{ asset('js/modernizr.js') }}"></script>
 </head>
-<body class="hands-background">
+<body class="wood-background">
 
-<div class="row">
-    <div class="large-12 columns">
-        <h1>Diccionario en señas</h1>
-        <hr/>
+<header>
+    <div class="row">
+        <!--<div class="medium-2 columns text-center">
+            <img class="logo" src="{{ asset('img/logo.png') }}" alt="Fundación Amigos del Gesto"/>
+        </div>-->
+        <div class="large-12 columns">
+            <h6 id="foundation-name" class="gray">Fundación Amigos del Gesto</h6>
+            <h1 class="bowlby-font gray">Diccionario en señas</h1>
+        </div>
     </div>
-</div>
+</header>
 
 <div class="row">
     <div class="medium-4 large-6 columns">
@@ -40,7 +45,8 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <h3><a href="{{ url('/') }}"><i class="fa fa-arrow-left fa-lg"></i> atrás</a> | <span class="bold">{{ ucfirst(urldecode($category->nombre)) }}</span></h3>
+        <!--<h3><a href="{{ url('/') }}"><i class="fa fa-arrow-left fa-lg"></i> atrás</a> | <span class="bold">{{ ucfirst(urldecode($category->nombre)) }}</span></h3>-->
+        <h3 class="bowlby-font category-title">{{ ucfirst(urldecode($category->nombre)) }}</h3>
         <div id="lista-gestos">
             <ul class="small-block-grid-1 medium-block-grid-3">
                 @foreach ($category->gestures as $gesture)
