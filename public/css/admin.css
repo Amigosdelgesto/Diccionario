@@ -4,6 +4,9 @@
     top: 5px;
     color: #d32a0e;
 }
+#container{
+    margin-bottom: 20px;
+}
 .rojo{
     color: #d32a0e;
 }
@@ -53,4 +56,35 @@ fieldset legend{
 }
 label, fieldset legend{
     font-weight: bold;
+}
+header{
+    background-color: #666;
+    padding: 10px 0;
+    box-shadow: 0px 3px 5px rgba(100,100,100,0.4);
+    margin-bottom: 20px;
+}
+    header #foundation-name{
+        margin-bottom: -12px;
+    }
+    header .logo{
+        max-width: 80px;
+    }
+#subheader{
+
+}
+.bowlby-font{
+    font-family: 'Bowlby One SC', cursive;
+}
+.white{
+    color: #fff;
+}
+.bold{
+    font-weight: bold;
+}
+.gray{
+    color: #666;
+}
+.accordion .content.active{
+    background: #fcfcfc;
+    box-shadow: 0 0 10px #eee inset;
 }

@@ -58,11 +58,8 @@ video{
 .breadcrumbs{
     background-color: #fff;
 }
-.logo{
-    max-width: 80px;
-}
 header{
-    padding: 15px 0;
+    padding: 10px 0;
     background: url(../img/colors-border.png) center bottom no-repeat #fff;
     background-size: 100% 5px;
     box-shadow: 0px 3px 5px rgba(100,100,100,0.6);
@@ -70,6 +67,9 @@ header{
 }
     header #foundation-name{
         margin-bottom: -12px;
+    }
+    header .logo{
+        max-width: 80px;
     }
 #subheader{
 
@@ -83,4 +83,7 @@ header{
 .category-title{
     color: #333;
     text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white;
+}
+#search-form{
+    margin: 0;
 }

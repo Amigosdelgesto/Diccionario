@@ -5,34 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Panel administrativo | Diccionario de gestos</title>
     <link rel="stylesheet" href="{{ asset('css/foundation.css') }}" />
+    <link href='http://fonts.googleapis.com/css?family=Bowlby+One+SC|Holtwood+One+SC|Rammetto+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}" />
     <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
     <script src="{{ asset('js/modernizr.js') }}"></script>
 </head>
 <body>
-<div class="row">
-    <div class="large-12 columns">
-        <h1><strong>Panel administrativo</strong> | Diccionario de gestos</h1>
-        <hr/>
+<header>
+    <div class="row">
+        <!--<div class="medium-2 columns text-center">
+            <img class="logo" src="{{ asset('img/four-hands-gray.png') }}" alt="Fundación Amigos del Gesto"/>
+        </div>-->
+        <div class="large-12 columns">
+            <h6 id="foundation-name" class="white">Fundación Amigos del Gesto | Diccionario en señas</h6>
+            <h1 class="bowlby-font white">Panel administrativo</h1>
+        </div>
     </div>
-</div>
+</header>
 
-<div class="row">
+<div id="container" class="row">
     <div class="large-12 columns">
-        <a class="small radius button" data-reveal-id="nuevaCategoriaModal">Agregar categoría</a>
-        <a class="small success radius button" data-reveal-id="nuevoGestoModal">Agregar gesto</a>
+        <a class="small radius button" data-reveal-id="nuevaCategoriaModal"><i class="fa fa-plus"></i> Agregar categoría</a>
+        <a class="small success radius button" data-reveal-id="nuevoGestoModal"><i class="fa fa-plus"></i> Agregar gesto</a>
+        <h3 class="bold gray">Categorías</h3>
         <dl class="accordion" data-accordion>
             @if(isset($categories))
             @foreach ($categories as $pos => $category)
             <dd>
                 <a href="#panel{{ $pos + 1 }}">{{ urldecode($category->nombre) }}</a>
-                <div id="panel{{ $pos + 1 }}" class="content {{ ($pos == 0) ? 'active' : '' }}">
+                <div id="panel{{ $pos + 1 }}" class="content">
                     <div class="text-right">
-                        <a href="{{ url('categories/' . $category->id_categoria . '/edit' ) }}" class="tiny radius button" data-reveal-id="editarCategoriaModal" data-reveal-ajax="true">Editar categoría</a>
+                        <a href="{{ url('categories/' . $category->id_categoria . '/edit' ) }}" class="tiny radius button" data-reveal-id="editarCategoriaModal" data-reveal-ajax="true"><i class="fa fa-pencil"></i> Editar categoría</a>
                         @if ($category->status)
-                        <a href="{{ url('categories/' . $category->id_categoria . '/delete') }}" class="tiny alert radius button" onclick="deleteCategory({{ $category->id_categoria }}, '{{ $category->nombre }}')">{{ (count($category->gestures)) ? 'Desactivar' : 'Eliminar' }} categoría</a>
+                        <a href="{{ url('categories/' . $category->id_categoria . '/delete') }}" class="tiny alert radius button" onclick="deleteCategory({{ $category->id_categoria }}, '{{ $category->nombre }}')">{{ (count($category->gestures)) ? '<i class="fa fa-minus-circle"></i> Desactivar' : '<i class="fa fa-times"></i> Eliminar' }} categoría</a>
                         @else
-                        <a href="{{ url('categories/' . $category->id_categoria . '/delete') }}" class="tiny success radius button" onclick="deleteCategory({{ $category->id_categoria }}, '{{ $category->nombre }}')">Activar categoría</a>
+                        <a href="{{ url('categories/' . $category->id_categoria . '/delete') }}" class="tiny success radius button" onclick="deleteCategory({{ $category->id_categoria }}, '{{ $category->nombre }}')"><i class="fa fa-plus-circle"></i> Activar categoría</a>
                         @endif
                     </div>
                     <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
@@ -121,7 +128,7 @@
                 </select>
                 <fieldset>
                     <legend>Ejemplos</legend>
-                    <ul id="lista-ejemplos" class="small-block-grid-1 large-block-grid-3">
+                    <ul id="lista-ejemplos" class="small-block-grid-1 large-block-grid-2">
                         <li id="ejemplo1" class="ejemplo">
                             <label>Título</label>
                             <input type="text" name="ej_titulos[]" placeholder="Título"/>
@@ -129,12 +136,6 @@
                             <input type="file" name="ej_imagenes[]" accept="image/*"/>
                         </li>
                         <li id="ejemplo2" class="ejemplo">
-                            <label>Título</label>
-                            <input type="text" name="ej_titulos[]" placeholder="Título"/>
-                            <label>Imágen</label>
-                            <input type="file" name="ej_imagenes[]" accept="image/*"/>
-                        </li>
-                        <li id="ejemplo3" class="ejemplo">
                             <label>Título</label>
                             <input type="text" name="ej_titulos[]" placeholder="Título"/>
                             <label>Imágen</label>

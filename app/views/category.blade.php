@@ -15,7 +15,7 @@
 <header>
     <div class="row">
         <!--<div class="medium-2 columns text-center">
-            <img class="logo" src="{{ asset('img/logo.png') }}" alt="Fundación Amigos del Gesto"/>
+            <img class="logo" src="{{ asset('img/four-hands.png') }}" alt="Fundación Amigos del Gesto"/>
         </div>-->
         <div class="large-12 columns">
             <h6 id="foundation-name" class="gray">Fundación Amigos del Gesto</h6>
@@ -32,14 +32,16 @@
         </ul>
     </div>
     <div class="medium-8 large-6 columns">
-        <div class="row collapse">
-            <div class="small-8 columns">
-                <input type="text" placeholder="Categoría o gesto...">
+        <form id="search-form" action="{{ url('search') }}" method="get">
+            <div class="row collapse">
+                <div class="small-8 columns">
+                    <input name="q" type="text" placeholder="Categoría o gesto...">
+                </div>
+                <div class="small-4 columns">
+                    <button type="submit" class="button postfix radius">Buscar&nbsp;&nbsp;<i class="fa fa-search"></i></button>
+                </div>
             </div>
-            <div class="small-4 columns">
-                <a href="#" class="button postfix radius">Buscar&nbsp;&nbsp;<i class="fa fa-search"></i></a>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 

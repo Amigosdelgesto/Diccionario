@@ -15,7 +15,7 @@
 <header>
     <div class="row">
         <!--<div class="medium-2 columns text-center">
-            <img class="logo" src="{{ asset('img/logo.png') }}" alt="Fundación Amigos del Gesto"/>
+            <img class="logo" src="{{ asset('img/four-hands.png') }}" alt="Fundación Amigos del Gesto"/>
         </div>-->
         <div class="large-12 columns">
             <h6 id="foundation-name" class="gray">Fundación Amigos del Gesto</h6>
@@ -38,7 +38,7 @@
     <div class="large-7 columns">
         <div class="text-center">
             <div class="panel panel-titulo-gesto">
-                <video src="{{ url($gesture->url_video) }}" autoplay></video>
+                <video src="{{ url($gesture->url_video) }}" autoplay controls></video>
             </div>
             <div id="directional-btns" class="row">
                 <div class="large-12 columns text-center">
@@ -56,7 +56,6 @@
     <div class="large-5 columns">
         <h2 id="gesture-title" class="bowlby-font category-title">{{ urldecode($gesture->titulo) }}</h2>
         @if (count($gesture->examples) > 0)
-        <h4 class="bold">Ejemplos</h4>
         <ul class="small-block-grid-1 medium-block-grid-2">
             @foreach ($gesture->examples as $example)
             <li>
@@ -71,7 +70,7 @@
         </ul>
         @else
         <div class="panel panel-titulo-gesto">
-            <h4>Definición</h4>
+            <h4 class="bold">Definición</h4>
             <p>{{ $gesture->definicion }}</p>
         </div>
         @endif

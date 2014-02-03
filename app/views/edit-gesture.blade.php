@@ -29,7 +29,7 @@
             </select>
             <fieldset>
                 <legend>Ejemplos</legend>
-                <ul id="lista-ejemplos" class="small-block-grid-1 large-block-grid-3">
+                <ul id="lista-ejemplos" class="small-block-grid-1 large-block-grid-2">
                     @foreach ($gesture->examples as $key => $example)
                     <li id="ejemplo{{ $key }}" class="ejemplo">
                         <label>Título</label>
@@ -40,7 +40,7 @@
                         <input id="checkbox{{ $key }}" type="checkbox" name="ej_ejemplos[{{ $key }}][eliminar]"><label class="rojo" for="checkbox{{ $key }}">Eliminar</label>
                     </li>
                     @endforeach
-                    @for ($i = count($gesture->examples); $i < 3; $i++)
+                    @for ($i = count($gesture->examples); $i < 2; $i++)
                     <li id="ejemplo{{ $i }}" class="ejemplo">
                         <label>Título</label>
                         <input type="text" name="ej_titulos[]" placeholder="Título"/>
