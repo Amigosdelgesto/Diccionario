@@ -14,13 +14,13 @@ body{
     border: none;
 }
 .panel .titulo-gesto{
-    color: #000;
+    color: #333;
     font-size: 1.5em;
     font-weight: bold;
 }
 .panel-titulo-gesto{
     background: #fff;
-    color: #000;
+    color: #333;
 }
 .rammetto-font{
     font-family: 'Rammetto One', cursive;
@@ -86,4 +86,19 @@ header{
 }
 #search-form{
     margin: 0;
+}
+p.result{
+    text-align: right;
+    margin-bottom: 0;
+    font-size: 0.9em;
+    color: #999;
+}
+p.result-category{
+    color: #999;
+}
+p.result-gesture{
+    color: #999;
+}
+div.result{
+    border-top: 5px solid;
 }

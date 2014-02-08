@@ -16,10 +16,7 @@ Route::get('/', function()
     return View::make('hello', array('categories' => Category::where('status', true)->orderBy('nombre', 'ASC')->get()));
 });
 
-Route::get('search', function()
-{
-    return View::make('search', array('keyword' => Input::get('q')));
-});
+Route::get('search', 'SearchController@search');
 
 Route::get('admin', function()
 {

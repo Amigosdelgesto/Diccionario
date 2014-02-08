@@ -55,7 +55,7 @@
                 <li>
                     <!--<a href="#" data-orbit-link="headline-1" data-reveal-id="gestoModal">-->
                     <a href="{{ url('gestures') . '/' . $gesture->id_gesto }}" target="_self">
-                        <div class="panel panel-titulo-gesto">
+                        <div class="panel panel-titulo-gesto result">
                             <div class="text-center">
                                 <img class="img-gesto" src="{{ url($gesture->url_imagen) }}">
                                 <h2 class="titulo-gesto">{{ urldecode($gesture->titulo) }}</h2>
