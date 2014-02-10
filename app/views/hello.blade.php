@@ -10,36 +10,31 @@
     <link rel="stylesheet" href="{{ asset('font-awesome/css/font-awesome.min.css') }}">
     <script src="{{ asset('js/modernizr.js') }}"></script>
 </head>
-<body class="wood-background">
+<body class="pattern-background">
 
 <header>
     <div class="row">
         <!--<div class="medium-2 columns text-center">
             <img class="logo" src="{{ asset('img/four-hands.png') }}" alt="Fundación Amigos del Gesto"/>
         </div>-->
-        <div class="large-12 columns">
-            <h6 id="foundation-name" class="gray">Fundación Amigos del Gesto</h6>
-            <h1 class="bowlby-font gray">Diccionario en señas</h1>
+        <div class="large-6 columns">
+            <h6 id="foundation-name" class="white">Fundación Amigos del Gesto</h6>
+            <h1 class="bowlby-font white">Diccionario en señas</h1>
         </div>
-    </div>
-</header>
-
-<div id="subheader">
-    <div class="row">
-        <div class="medium-8 large-6 columns right">
-            <form id="search-form" action="{{ url('search') }}" method="get">
+		<div class="large-6 columns">
+			<form id="search-form" action="{{ url('search') }}" method="get">
                 <div class="row collapse">
                     <div class="small-8 columns">
-                        <input name="q" type="text" placeholder="Categoría o gesto...">
+                        <input id="search-input" name="q" type="text" placeholder="Categoría o gesto...">
                     </div>
                     <div class="small-4 columns">
-                        <button type="submit" class="button postfix radius">Buscar&nbsp;&nbsp;<i class="fa fa-search"></i></button>
+                        <button id="search-submit" type="submit" class="button postfix radius">Buscar&nbsp;&nbsp;<i class="fa fa-search"></i></button>
                     </div>
                 </div>
             </form>
-        </div>
+		</div>
     </div>
-</div>
+</header>
 
 <div class="row">
     <div class="large-12 columns">
@@ -50,7 +45,7 @@
                 <li>
                     <!--<a href="#" data-reveal-id="categoriaModal">-->
                     <a href="{{ url('categories') . '/' . $category->id_categoria }}">
-                        <div class="panel result">
+                        <div class="panel category-panel">
                             <div class="text-center">
                                 <img class="img-categoria" src="{{ url($category->url_imagen) }}">
                                 <h3 class="bold">{{ urldecode($category->nombre) }}</h3>
