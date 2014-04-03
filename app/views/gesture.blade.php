@@ -48,16 +48,16 @@
         <div class="large-7 columns">
             <div class="text-center">
                 <div class="panel panel-titulo-gesto">
-                    <video src="{{ url($gesture->url_video) }}" autoplay controls></video>
+                    <video src="{{ url($gesture->url_video) }}" autoplay loop="true" controls></video>
                 </div>
                 <div id="directional-btns" class="row">
                     <div class="large-12 columns text-center">
                         @if (!empty($previous))
-                        <a href="{{ $previous->id_gesto }}" class="small button"><i class="fa fa-chevron-left"></i> {{ urldecode($previous->titulo) }}</a>
+                        <a href="{{ $previous->id_gesto }}" class="tiny radius button"><i class="fa fa-chevron-left"></i> {{ urldecode($previous->titulo) }}</a>
                         @endif
 
                         @if (!empty($next))
-                        <a href="{{ $next->id_gesto }}" class="small button">{{ urldecode($next->titulo) }} <i class="fa fa-chevron-right"></i></a>
+                        <a href="{{ $next->id_gesto }}" class="tiny radius button">{{ urldecode($next->titulo) }} <i class="fa fa-chevron-right"></i></a>
                         @endif
                     </div>
                 </div>

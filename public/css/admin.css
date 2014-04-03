@@ -92,6 +92,6 @@ header{
     box-shadow: 0 0 10px #eee inset;
 }
 #btn-a-diccionario{
-    margin-bottom: 0;
+    margin-bottom: 10px;
     margin-top: 15px;
 }

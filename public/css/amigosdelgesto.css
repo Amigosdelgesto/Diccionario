@@ -28,7 +28,7 @@ body{
 	color: #333;
 }	
 .rammetto-font{
-    font-family: 'Rammetto One', cursive;
+    font-family: 'Rammetto One', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 .slide-content{
     padding: 1.5em;
@@ -92,7 +92,7 @@ header{
     padding-bottom: 20px;
 }
 .bowlby-font{
-    font-family: 'Bowlby One SC', cursive;
+    font-family: 'Bowlby One SC', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 }
 .gray{
     color: #888;

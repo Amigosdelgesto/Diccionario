@@ -3,7 +3,7 @@ define("GESTURE_PATH","../resources/gestures/");
 define("EXAMPLE_PATH","../resources/examples/");
 define('NEW_GESTURE_RULES',serialize(
     array(
-        'titulo' => 'required',
+        'titulo' => 'required|unique:gesto,titulo',
         'categoria' => 'required',
         'definicion' => 'required',
         'video' => 'required',
