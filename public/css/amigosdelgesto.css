@@ -78,12 +78,18 @@ header{
     }
     header .logo{
         max-width: 80px;
+        max-height: 60px;
+        float: left;
+        margin-right: 10px;
     }
 	header h1{
 		font-size: 1.75em;
 	}
 #subheader{
 
+}
+#btn-administrar{
+    font-size: 14px;
 }
 #container{
     min-height: 450px;

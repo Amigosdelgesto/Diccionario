@@ -15,8 +15,11 @@
 <header>
     <div class="row">
         <div class="large-6 columns">
-            <h6 id="foundation-name" class="white">Fundación Amigos del Gesto</h6>
-            <h1 class="bowlby-font white">Diccionario en señas</h1>
+            <img class="logo" src="{{ asset('img/logo-hands.png') }}" alt="Fundación Amigos del Gesto"/>
+            <div style="float: left">
+                <h6 id="foundation-name" class="white">Fundación Amigos del Gesto</h6>
+                <h1 class="bowlby-font white">Diccionario en señas</h1>
+            </div>
         </div>
         <div class="large-6 columns">
             <form id="search-form" action="{{ url('search') }}" method="get">
@@ -91,7 +94,7 @@
 <div id="footer" class="row">
     <div class="large-12 columns text-right">
         <hr>
-        <a href="{{ url('admin') }}" class="gray">Administrar</a>
+        <a id="btn-administrar" href="{{ url('admin') }}" class="gray">Administrar</a>
     </div>
 </div>
 

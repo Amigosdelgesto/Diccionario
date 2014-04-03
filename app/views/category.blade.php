@@ -14,12 +14,12 @@
 
 <header>
     <div class="row">
-        <!--<div class="medium-2 columns text-center">
-            <img class="logo" src="{{ asset('img/four-hands.png') }}" alt="Fundación Amigos del Gesto"/>
-        </div>-->
         <div class="large-6 columns">
-            <h6 id="foundation-name" class="white">Fundación Amigos del Gesto</h6>
-            <h1 class="bowlby-font white">Diccionario en señas</h1>
+            <img class="logo" src="{{ asset('img/logo-hands.png') }}" alt="Fundación Amigos del Gesto"/>
+            <div style="float: left">
+                <h6 id="foundation-name" class="white">Fundación Amigos del Gesto</h6>
+                <h1 class="bowlby-font white">Diccionario en señas</h1>
+            </div>
         </div>
         <div class="large-6 columns">
             <form id="search-form" action="{{ url('search') }}" method="get">
@@ -51,7 +51,7 @@
             <!--<h3><a href="{{ url('/') }}"><i class="fa fa-arrow-left fa-lg"></i> atrás</a> | <span class="bold">{{ ucfirst(urldecode($category->nombre)) }}</span></h3>-->
             <h3 class="bold category-title">{{ ucfirst(urldecode($category->nombre)) }}</h3>
             <div id="lista-gestos">
-                <ul class="small-block-grid-1 medium-block-grid-3">
+                <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
                     @foreach ($category->categories as $subcategory)
                     <li>
                         <!--<a href="#" data-orbit-link="headline-1" data-reveal-id="gestoModal">-->
@@ -165,7 +165,7 @@
 <div id="footer" class="row">
     <div class="large-12 columns text-right">
         <hr>
-        <a href="{{ url('admin') }}" class="gray">Administrar</a>
+        <a id="btn-administrar" href="{{ url('admin') }}" class="gray">Administrar</a>
     </div>
 </div>
 
