@@ -18,10 +18,10 @@ Route::get('/', function()
 
 Route::get('search', 'SearchController@search');
 
-Route::get('admin', function()
+Route::get('admin', array('before' => 'auth.basic', 'uses' => function()
 {
     return View::make('admin', array('categories' => Category::orderBy('nombre', 'ASC')->get()));
-});
+}));
 
 Route::get('categories/{id}', function($id)
 {

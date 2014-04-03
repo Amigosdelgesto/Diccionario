@@ -36,7 +36,7 @@
     </div>
 </header>
 
-<div class="row">
+<div id="container" class="row">
     <div class="large-12 columns">
         <h3 class="bold category-title">Categorías</h3>
         <div id="lista-categorias">
@@ -56,6 +56,13 @@
                 @endforeach
             </ul>
         </div>
+    </div>
+</div>
+
+<div id="footer" class="row">
+    <div class="large-12 columns text-right">
+        <hr>
+        <a href="{{ url('admin') }}" class="gray">Administrar</a>
     </div>
 </div>
 

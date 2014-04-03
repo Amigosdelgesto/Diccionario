@@ -16,9 +16,12 @@
         <!--<div class="medium-2 columns text-center">
             <img class="logo" src="{{ asset('img/four-hands-gray.png') }}" alt="Fundación Amigos del Gesto"/>
         </div>-->
-        <div class="large-12 columns">
+        <div class="large-7 columns">
             <h6 id="foundation-name" class="white">Fundación Amigos del Gesto | Diccionario en señas</h6>
             <h1 class="bowlby-font white">Panel administrativo</h1>
+        </div>
+        <div class="large-5 columns text-right">
+            <a id="btn-a-diccionario" class="tiny radius button" href="{{ url('/') }}">Regresar al Diccionario</a>
         </div>
     </div>
 </header>

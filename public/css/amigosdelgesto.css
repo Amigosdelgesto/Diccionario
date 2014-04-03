@@ -85,6 +85,12 @@ header{
 #subheader{
 
 }
+#container{
+    min-height: 450px;
+}
+#footer{
+    padding-bottom: 20px;
+}
 .bowlby-font{
     font-family: 'Bowlby One SC', cursive;
 }
