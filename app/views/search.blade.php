@@ -46,7 +46,7 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <h3 class="bowlby-font category-title">Resultados para "{{$keywords}}"</h3>
+        <h3 class="bold category-title">Resultados para "{{$keywords}}"</h3>
         <div id="lista-gestos">
             <ul class="small-block-grid-1 medium-block-grid-3">
                 @foreach ($categories as $category)

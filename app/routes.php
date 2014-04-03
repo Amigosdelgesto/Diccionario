@@ -28,12 +28,28 @@ Route::get('categories/{id}', function($id)
     return View::make('category', array('category' => Category::findOrFail($id)));
 });
 
-Route::get('gestures/{id}', function($id)
+Route::get('gestures/{idGesture}', function($idGesture)
 {
-    $gesture = Gesture::findOrFail($id);
-    $next = Gesture::where('titulo', '>', $gesture->titulo)->orderBy('titulo', 'ASC')->first();
-    $previous = Gesture::where('titulo', '<', $gesture->titulo)->orderBy('titulo', 'DESC')->first();
+    $gesture = Gesture::findOrFail($idGesture);
     $category = Category::findOrFail($gesture->id_categoria);
+    $next = Gesture::where('id_categoria', $category->id_categoria)->where('titulo', '>', $gesture->titulo)->orderBy('titulo', 'ASC')->first();
+    $previous = Gesture::where('id_categoria', $category->id_categoria)->where('titulo', '<', $gesture->titulo)->orderBy('titulo', 'DESC')->first();
+
+    return View::make('gesture', array(
+            'gesture' => $gesture,
+            'next' => $next,
+            'previous' => $previous,
+            'category' => $category,
+        )
+    );
+});
+
+Route::get('categories/{idCategory}/gestures/{idGesture}', function($idCategory, $idGesture)
+{
+    $gesture = Gesture::findOrFail($idGesture);
+    $category = Category::findOrFail($gesture->id_categoria);
+    $next = Gesture::where('id_categoria', $category->id_categoria)->where('titulo', '>', $gesture->titulo)->orderBy('titulo', 'ASC')->first();
+    $previous = Gesture::where('titulo', '<', $gesture->titulo)->orderBy('titulo', 'DESC')->first();
 
     return View::make('gesture', array(
             'gesture' => $gesture,
@@ -48,7 +64,7 @@ Route::get('categories/{id}/delete', 'CategoryController@deleteCategory');
 Route::get('gestures/{id}/delete', 'GestureController@deleteGesture');
 
 Route::get('categories/{id}/edit', function($id) {
-    return View::make('edit-category')->with(array('category' => Category::findOrFail($id), 'categories' => Category::where('status', true)->get()));
+    return View::make('edit-category')->with(array('category' => Category::findOrFail($id), 'categories' => Category::where('id_categoria', '<>', $id)->where('status', true)->get()));
 });
 Route::get('gestures/{id}/edit', function($id) {
     return View::make('edit-gesture')->with(array('gesture' => Gesture::findOrFail($id), 'categories' => Category::where('status', true)->get()));

@@ -6,12 +6,18 @@
             <label>Título</label>
             <input type="text" name="titulo" placeholder="Título" value="{{ $gesture->titulo }}" required/>
             <label>Definición</label>
-            <textarea placeholder="Definición" name="definicion" required>{{ $gesture->definicion }}</textarea>
+            <textarea placeholder="Definición" name="definicion" required style="height: 180px">{{ $gesture->definicion }}</textarea>
         </div>
         <div class="large-6 columns">
             <label>Imágen principal</label>
+            <div class="text-center">
+                <img src="{{ $gesture->url_imagen }}" style="width: 80px">
+            </div>
             <input class="file-input" type="file" name="main_image" accept="image/*" />
             <label>Video</label>
+            <div class="text-center" style="margin-bottom: 10px">
+                <video src="{{ $gesture->url_video }}" style="width: 80px"></video>
+            </div>
             <input class="file-input" type="file" name="video" accept="video/*" />
         </div>
     </div>
@@ -35,6 +41,9 @@
                         <label>Título</label>
                         <input type="text" name="ej_ejemplos[{{ $key }}][titulo]" value="{{ $example->titulo }}" placeholder="Título"/>
                         <label>Imágen</label>
+                        <div class="text-center" style="margin-bottom: 10px">
+                            <img src="{{ $example->url_imagen }}" style="width: 80px">
+                        </div>
                         <input type="file" name="ej_imagenes[{{ $key }}]" accept="image/*"/>
                         <input type="hidden" name="ej_ejemplos[{{ $key }}][id]" value="{{ $example->id_ejemplo }}" />
                         <input id="checkbox{{ $key }}" type="checkbox" name="ej_ejemplos[{{ $key }}][eliminar]"><label class="rojo" for="checkbox{{ $key }}">Eliminar</label>
@@ -52,7 +61,7 @@
             </fieldset>
             <div class="text-right">
                 <input type="submit" class="small success radius button" value="Guardar cambios" />
-                <a class="small radius button">Cancelar</a>
+                <a class="small radius button" onclick="close_modal($(this))">Cancelar</a>
             </div>
         </div>
     </div>

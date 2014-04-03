@@ -9,4 +9,8 @@ class Category extends Eloquent {
     public function gestures() {
         return $this->hasMany('Gesture','id_categoria')->orderBy('titulo', 'ASC');
     }
+
+    public function categories() {
+        return $this->hasMany('Category','id_categoria_padre')->orderBy('nombre', 'ASC');
+    }
 }

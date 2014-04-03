@@ -26,7 +26,11 @@
 <div id="container" class="row">
     <div class="large-12 columns">
         <a class="small radius button" data-reveal-id="nuevaCategoriaModal"><i class="fa fa-plus"></i> Agregar categoría</a>
+        @if(isset($categories))
+        @if(count($categories) > 0)
         <a class="small success radius button" data-reveal-id="nuevoGestoModal"><i class="fa fa-plus"></i> Agregar gesto</a>
+        @endif
+        @endif
         <h3 class="bold gray">Categorías</h3>
         <dl class="accordion" data-accordion>
             @if(isset($categories))
@@ -88,7 +92,7 @@
         </select>
         <div class="text-right">
             <input type="submit" class="small success radius button" value="Guardar" />
-            <a class="small radius button">Cancelar</a>
+            <a class="small radius button" onclick="close_modal($(this))">Cancelar</a>
         </div>
     </form>
     <a class="close-reveal-modal">&#215;</a>
@@ -98,6 +102,8 @@
 
 </div>
 
+@if(isset($categories))
+@if(count($categories) > 0)
 <div id="nuevoGestoModal" class="medium reveal-modal" data-reveal>
     <h2>Nuevo gesto</h2>
     <hr/>
@@ -145,13 +151,15 @@
                 </fieldset>
                 <div class="text-right">
                     <input type="submit" class="small success radius button" value="Guardar" />
-                    <a class="small radius button">Cancelar</a>
+                    <a class="small radius button" onclick="close_modal($(this))">Cancelar</a>
                 </div>
             </div>
         </div>
     </form>
     <a class="close-reveal-modal">&#215;</a>
 </div>
+@endif
+@endif
 
 <div id="editarGestoModal" class="medium reveal-modal" data-reveal>
 
@@ -197,6 +205,10 @@
             location.href = '{{ url('gestures') }}/' + id + '/delete';
         }
     }
+
+    function close_modal(modal){
+        modal.closest('.reveal-modal').foundation('reveal', 'close');
+    };
 </script>
 </body>
 </html>

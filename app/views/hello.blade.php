@@ -38,7 +38,7 @@
 
 <div class="row">
     <div class="large-12 columns">
-        <h3 class="bowlby-font category-title">Categorías</h3>
+        <h3 class="bold category-title">Categorías</h3>
         <div id="lista-categorias">
             <ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-3">
                 @foreach ($categories as $category)

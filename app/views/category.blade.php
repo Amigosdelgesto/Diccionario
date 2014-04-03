@@ -48,9 +48,22 @@
 <div class="row">
     <div class="large-12 columns">
         <!--<h3><a href="{{ url('/') }}"><i class="fa fa-arrow-left fa-lg"></i> atrás</a> | <span class="bold">{{ ucfirst(urldecode($category->nombre)) }}</span></h3>-->
-        <h3 class="bowlby-font category-title">{{ ucfirst(urldecode($category->nombre)) }}</h3>
+        <h3 class="bold category-title">{{ ucfirst(urldecode($category->nombre)) }}</h3>
         <div id="lista-gestos">
             <ul class="small-block-grid-1 medium-block-grid-3">
+                @foreach ($category->categories as $subcategory)
+                <li>
+                    <!--<a href="#" data-orbit-link="headline-1" data-reveal-id="gestoModal">-->
+                    <a href="{{ url('categories') . '/' . $subcategory->id_categoria }}" target="_self">
+                        <div class="panel category-panel">
+                            <div class="text-center">
+                                <img class="img-categoria" src="{{ url($subcategory->url_imagen) }}">
+                                <h3 class="bold">{{ urldecode($subcategory->nombre) }}</h3>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                @endforeach
                 @foreach ($category->gestures as $gesture)
                 <li>
                     <!--<a href="#" data-orbit-link="headline-1" data-reveal-id="gestoModal">-->
