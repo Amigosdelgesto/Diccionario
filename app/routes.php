@@ -61,6 +61,7 @@ Route::get('categories/{idCategory}/gestures/{idGesture}', function($idCategory,
 });
 
 Route::get('categories/{id}/delete', 'CategoryController@deleteCategory');
+Route::get('categories/{id}/delete-entire', 'CategoryController@deleteCategory');
 Route::get('gestures/{id}/delete', 'GestureController@deleteGesture');
 
 Route::get('categories/{id}/edit', function($id) {

@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d5327764-c4f0-450c-8dc5-227dc179e632" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/img/logo-hands.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/amigosdelgesto.css" afterPath="$PROJECT_DIR$/public/css/amigosdelgesto.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/category.blade.php" afterPath="$PROJECT_DIR$/app/views/category.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/gesture.blade.php" afterPath="$PROJECT_DIR$/app/views/gesture.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/hello.blade.php" afterPath="$PROJECT_DIR$/app/views/hello.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/search.blade.php" afterPath="$PROJECT_DIR$/app/views/search.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/CategoryController.php" afterPath="$PROJECT_DIR$/app/controllers/CategoryController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/routes.php" afterPath="$PROJECT_DIR$/app/routes.php" />
     </list>
     <ignored path="Diccionario.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,10 +16,10 @@
     <file path="/missing.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1389563247352" ignored="false" />
     <file path="/gesture.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1396531758025" ignored="false" />
     <file path="/Category.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1389573033197" ignored="false" />
-    <file path="/admin.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1396507606346" ignored="false" />
+    <file path="/admin.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1396539371995" ignored="false" />
     <file path="/admin.css" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1396498022030" ignored="false" />
     <file path="/GestureController.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390792728217" ignored="false" />
-    <file path="/CategoryController.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390792330729" ignored="false" />
+    <file path="/CategoryController.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1396539052403" ignored="false" />
     <file path="$PROJECT_DIR$/app/views/errors/edit-category.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390696557322" ignored="false" />
     <file path="/edit-gesture.blade.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1396507710643" ignored="false" />
     <file path="/Helpers.php" changelist="d5327764-c4f0-450c-8dc5-227dc179e632" time="1390774273300" ignored="false" />
@@ -70,28 +65,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GestureController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/GestureController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="32" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="CategoryController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/CategoryController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="37" selection-start="4059" selection-end="4059" vertical-scroll-proportion="0.0">
+            <state line="109" column="32" selection-start="4099" selection-end="4099" vertical-scroll-proportion="-11.423077">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin.blade.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="admin.blade.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/admin.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="17" selection-start="695" selection-end="869" vertical-scroll-proportion="-9.807693">
+            <state line="49" column="30" selection-start="3076" selection-end="3076" vertical-scroll-proportion="0.61077845">
               <folding />
             </state>
           </provider>
@@ -108,13 +94,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.blade.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="search.blade.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/search.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="12" selection-start="779" selection-end="779" vertical-scroll-proportion="0.4071856">
+            <state line="17" column="12" selection-start="779" selection-end="779" vertical-scroll-proportion="-7.8461537">
               <folding>
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="41" selection-start="2341" selection-end="2341" vertical-scroll-proportion="-9.153846">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -168,15 +163,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/CategoryController.php" />
         <option value="$PROJECT_DIR$/app/controllers/SearchController.php" />
         <option value="$PROJECT_DIR$/app/config/auth.php" />
         <option value="$PROJECT_DIR$/app/models/Admin.php" />
         <option value="$PROJECT_DIR$/app/filters.php" />
-        <option value="$PROJECT_DIR$/app/routes.php" />
         <option value="$PROJECT_DIR$/public/css/admin.css" />
         <option value="$PROJECT_DIR$/app/controllers/GestureController.php" />
-        <option value="$PROJECT_DIR$/app/views/admin.blade.php" />
         <option value="$PROJECT_DIR$/app/views/edit-category.blade.php" />
         <option value="$PROJECT_DIR$/app/views/edit-gesture.blade.php" />
         <option value="$PROJECT_DIR$/public/css/amigosdelgesto.css" />
@@ -184,6 +176,9 @@
         <option value="$PROJECT_DIR$/app/views/category.blade.php" />
         <option value="$PROJECT_DIR$/app/views/gesture.blade.php" />
         <option value="$PROJECT_DIR$/app/views/hello.blade.php" />
+        <option value="$PROJECT_DIR$/app/controllers/CategoryController.php" />
+        <option value="$PROJECT_DIR$/app/routes.php" />
+        <option value="$PROJECT_DIR$/app/views/admin.blade.php" />
       </list>
     </option>
   </component>
@@ -565,11 +560,6 @@
         <state line="36" column="1" selection-start="939" selection-end="939" vertical-scroll-proportion="-11.769231" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="3" selection-start="775" selection-end="775" vertical-scroll-proportion="-9.153846" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/Admin.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="14" column="31" selection-start="300" selection-end="300" vertical-scroll-proportion="-9.153846" />
@@ -597,13 +587,6 @@
     <entry file="file://$PROJECT_DIR$/app/controllers/GestureController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="32" selection-start="339" selection-end="339" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/CategoryController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="37" selection-start="4059" selection-end="4059" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -656,19 +639,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/admin.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/views/search.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="17" selection-start="695" selection-end="869" vertical-scroll-proportion="-9.807693">
+        <state line="17" column="12" selection-start="779" selection-end="779" vertical-scroll-proportion="-7.8461537">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/CategoryController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="109" column="32" selection-start="4099" selection-end="4099" vertical-scroll-proportion="-11.423077">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/search.blade.php">
+    <entry file="file://$PROJECT_DIR$/app/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="12" selection-start="779" selection-end="779" vertical-scroll-proportion="0.4071856">
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state line="63" column="41" selection-start="2341" selection-end="2341" vertical-scroll-proportion="-9.153846">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/admin.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="30" selection-start="3076" selection-end="3076" vertical-scroll-proportion="0.61077845">
+          <folding />
         </state>
       </provider>
     </entry>

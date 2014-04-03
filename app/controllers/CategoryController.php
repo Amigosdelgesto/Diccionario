@@ -107,4 +107,12 @@ class CategoryController extends BaseController {
         return Redirect::to('admin');
     }
 
+    public function deleteEntireCategory($id) {
+        $category = Category::findOrFail($id);
+        FileManager::deleteDir(CATEGORY_PATH.FileManager::clean($category->nombre));
+        $category->delete();
+
+        return Redirect::to('admin');
+    }
+
 }
