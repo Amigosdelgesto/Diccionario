@@ -18,7 +18,7 @@
             <div class="text-center" style="margin-bottom: 10px">
                 <video src="{{ $gesture->url_video }}" style="width: 80px"></video>
             </div>
-            <input class="file-input" type="file" name="video" accept="video/*" />
+            <input class="file-input" type="file" name="video" accept="video/mp4" />
         </div>
     </div>
     <div class="row">

@@ -83,7 +83,7 @@
         <label>Imágen</label>
         <input type="file" name="imagen" accept="image/*" required/>
         <label>Video</label>
-        <input type="file" name="video" accept="video/*" required />
+        <input type="file" name="video" accept="video/mp4" required />
         <label>Categoría a la que pertenece</label>
         <select name="categoria_padre" required>
             <option value="null">Ninguna</option>
@@ -122,7 +122,7 @@
                 <label>Imágen principal</label>
                 <input class="file-input" type="file" name="main_image" accept="image/*" required/>
                 <label>Video</label>
-                <input class="file-input" type="file" name="video" accept="video/*" required/>
+                <input class="file-input" type="file" name="video" accept="video/mp4" required/>
             </div>
         </div>
         <div class="row">

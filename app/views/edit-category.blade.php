@@ -12,7 +12,7 @@
     <div class="text-center" style="margin-bottom: 10px">
         <video src="{{ $category->url_video }}" style="width: 80px"></video>
     </div>
-    <input type="file" name="video" accept="video/*" />
+    <input type="file" name="video" accept="video/mp4" />
     <label>Categoría a la que pertenece</label>
     <select name="categoria_padre" required>
         <option value="null">Ninguna</option>
